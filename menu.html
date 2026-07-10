@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Menú — Peruvian Corner Hawaii</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="shared.css">
+<style>
+/* MENU PAGE */
+.menu-page-content {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 3rem var(--pad) 6rem;
+}
+
+.menu-category {
+  margin-bottom: 4.5rem;
+  scroll-margin-top: calc(var(--nav-h) + 2rem);
+}
+
+.category-header {
+  display: flex;
+  align-items: baseline;
+  gap: 1.5rem;
+  margin-bottom: 0.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 0.5px solid var(--sand-dark);
+}
+.category-title {
+  font-family: var(--font-display);
+  font-size: clamp(22px, 3vw, 30px);
+  font-weight: 300;
+  color: var(--ink);
+}
+.category-title em { font-style: italic; color: var(--red); }
+.category-count {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--ink-light);
+}
+
+.dishes-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1px;
+  background: var(--sand-mid);
+  border: 0.5px solid var(--sand-mid);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+.dish-row {
+  background: var(--white);
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  gap: 0;
+  transition: background 0.2s;
+  scroll-margin-top: calc(var(--nav-h) + 2rem);
+}
+.dish-row:hover { background: var(--ocean-pale); }
+.dish-row-img {
+  width: 140px; height: 100%;
+  min-height: 110px;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+.dish-row-img-placeholder {
+  width: 140px;
+  min-height: 110px;
+  background: var(--sand);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--ink-light);
+  font-family: var(--font-display);
+  font-size: 28px;
+  font-style: italic;
+}
+.dish-row-body {
+  padding: 1rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 4px;
+}
+.dish-row-name {
+  font-family: var(--font-display);
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--ink);
+  line-height: 1.2;
+}
+.dish-row-desc {
+  font-size: 12px;
+  color: var(--ink-mid);
+  line-height: 1.65;
+}
+.dish-row-tags {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin-top: 4px;
+}
+.dish-row-tag {
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--ocean-mid);
+  border: 0.5px solid var(--ocean-light);
+  border-radius: 2px;
+  padding: 2px 7px;
+}
+.dish-row-tag.red { color: var(--red); border-color: var(--red); opacity: 0.7; }
+.dish-row-tag.gold { color: var(--aji); border-color: var(--aji); opacity: 0.8; }
+
+/* STICKY CATEGORY NAV */
+.menu-subnav {
+  position: sticky;
+  top: var(--nav-h);
+  background: rgba(255,255,255,0.97);
+  backdrop-filter: blur(8px);
+  border-bottom: 0.5px solid var(--sand-mid);
+  z-index: 50;
+  padding: 0 var(--pad);
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+.menu-subnav-inner {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  display: flex;
+  gap: 0;
+  white-space: nowrap;
+}
+.subnav-link {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  color: var(--ink-light);
+  padding: 14px 16px;
+  border-bottom: 2px solid transparent;
+  transition: color 0.2s, border-color 0.2s;
+  display: inline-block;
+  text-decoration: none;
+}
+.subnav-link:hover, .subnav-link.active { color: var(--red); border-bottom-color: var(--red); }
+
+/* ORDER BOX */
+.menu-order-banner {
+  background: var(--sand);
+  border: 0.5px solid var(--sand-dark);
+  border-radius: var(--radius-md);
+  padding: 1.25rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+  flex-wrap: wrap;
+}
+.menu-order-text {
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-style: italic;
+  font-weight: 300;
+  color: var(--ink);
+}
+.menu-order-text strong { font-style: normal; font-weight: 600; color: var(--red); }
+.menu-order-note { font-size: 12px; color: var(--ink-light); margin-top: 4px; }
+
+@media (max-width: 900px) {
+  .dishes-list { grid-template-columns: 1fr; }
+}
+@media (max-width: 600px) {
+  .dish-row { grid-template-columns: 100px 1fr; }
+  .dish-row-img, .dish-row-img-placeholder { width: 100px; min-height: 90px; }
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <a href="index.html" class="nav-logo">
+    <div class="logo-mark">
+      <img src="images/cropped-peruviancornerlogo.jpg" alt="Peruvian Corner" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+      <div class="logo-fallback">PC</div>
+    </div>
+    <div class="logo-text">
+      <span class="logo-name">Peruvian Corner</span>
+      <span class="logo-sub">Hawaii · 808</span>
+    </div>
+  </a>
+  <button class="nav-hamburger" id="navToggle" aria-label="Abrir menú">
+    <span></span><span></span><span></span>
+  </button>
+  <div class="nav-links" id="navLinks">
+    <div class="nav-item has-dropdown">
+      <button class="nav-link dropdown-toggle active" aria-expanded="false">Menú <span class="chevron">▾</span></button>
+      <div class="dropdown">
+        <div class="dropdown-col">
+          <p class="dropdown-heading">Mar &amp; Tierra</p>
+          <a href="#ceviche" class="dropdown-link">Ceviche</a>
+          <a href="#tiradito" class="dropdown-link">Tiradito</a>
+          <a href="#anticuchos" class="dropdown-link">Anticuchos</a>
+          <a href="#jalea" class="dropdown-link">Jalea</a>
+          <a href="#pulpo" class="dropdown-link">Pulpo al Olivo</a>
+          <a href="#fuego" class="dropdown-link">Fuego de Conchitas</a>
+        </div>
+        <div class="dropdown-col">
+          <p class="dropdown-heading">Platos Principales</p>
+          <a href="#lomo" class="dropdown-link">Lomo Saltado</a>
+          <a href="#aji" class="dropdown-link">Ají de Gallina</a>
+          <a href="#arroz-mariscos" class="dropdown-link">Arroz con Mariscos</a>
+          <a href="#arroz-pollo" class="dropdown-link">Arroz con Pollo</a>
+          <a href="#plancha" class="dropdown-link">Plancha</a>
+          <a href="#chaufa" class="dropdown-link">Chaufa</a>
+        </div>
+        <div class="dropdown-col">
+          <p class="dropdown-heading">Entradas &amp; Postres</p>
+          <a href="#causa" class="dropdown-link">Causa</a>
+          <a href="#palta" class="dropdown-link">Palta Rellena</a>
+          <a href="#huancaina" class="dropdown-link">Papa a la Huancaína</a>
+          <a href="#chilcano" class="dropdown-link">Chilcano</a>
+          <a href="#cheesecake" class="dropdown-link">Cheesecake de Maracuyá</a>
+          <a href="#" class="dropdown-link dropdown-all">Ver todos los platos →</a>
+        </div>
+      </div>
+    </div>
+    <a href="chef.html" class="nav-link">Chef Miguel</a>
+    <a href="contacto.html" class="nav-link">Contacto</a>
+    <a href="https://peruvian-corner-waialua.cloveronline.com/menu/all" target="_blank" class="nav-cta">Ordenar online</a>
+  </div>
+</nav>
+
+<!-- PAGE HEADER -->
+<div class="page-header">
+  <div class="page-header-inner">
+    <span class="section-eyebrow">Carta completa</span>
+    <h1 class="section-title">Nuestro <em>Menú</em></h1>
+    <p class="page-header-sub">Cocina peruana criolla con influencia nikkei y chifa. Ingredientes frescos locales, platos hechos a pedido.</p>
+  </div>
+</div>
+
+<!-- STICKY SUBNAV -->
+<div class="menu-subnav">
+  <div class="menu-subnav-inner">
+    <a href="#mar" class="subnav-link">Mar &amp; Tierra</a>
+    <a href="#principales" class="subnav-link">Principales</a>
+    <a href="#entradas" class="subnav-link">Entradas</a>
+    <a href="#chifa" class="subnav-link">Chifa</a>
+    <a href="#postres" class="subnav-link">Postres</a>
+    <a href="#mas" class="subnav-link">Más platos</a>
+  </div>
+</div>
+
+<!-- MENU CONTENT -->
+<div class="menu-page-content">
+
+  <!-- ORDER BANNER -->
+  <div class="menu-order-banner">
+    <div>
+      <div class="menu-order-text">Pedí online o <strong>llamá antes de venir</strong></div>
+      <div class="menu-order-note">WhatsApp · Teléfono · Texto · (808) 888-0234</div>
+    </div>
+    <a href="https://peruvian-corner-waialua.cloveronline.com/menu/all" target="_blank" class="btn btn-primary">Ordenar online</a>
+  </div>
+
+  <!-- MAR Y TIERRA -->
+  <div class="menu-category" id="mar">
+    <div class="category-header">
+      <span class="section-eyebrow">Categoría</span>
+      <h2 class="category-title">Mar &amp; <em>Tierra</em></h2>
+      <span class="category-count">6 platos</span>
+    </div>
+    <div class="dishes-list">
+
+      <div class="dish-row" id="ceviche">
+        <img class="dish-row-img" src="images/ceviche-clasico-ceviche-classic-2023-05-07-4.jpg" alt="Ceviche Clásico" loading="lazy">
+        <div class="dish-row-body">
+          <div class="dish-row-name">Ceviche</div>
+          <div class="dish-row-desc">Famosos chefs japoneses van al Perú a entrenarse en cocinar pescado fresco. Ceviche son cubos de pescado fresco cortado al momento, nunca congelado, marinado en jugo de lima recién exprimida. El Perú NO agrega tomates. Chef Miguel usa pescado local fresco: mahi, papio, maguro, mollejas de res, salmón, red snapper y hamachi. También tiene un pez local secreto que no revela.</div>
+          <div class="dish-row-tags">
+            <span class="dish-row-tag">Signature</span>
+            <span class="dish-row-tag gold">Pescado fresco</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="dish-row" id="tiradito">
+        <img class="dish-row-img" src="images/tiradito-de-salmon-sashimi-ceviche-n-salmon-2023-09-24-1.jpeg" alt="Tiradito" loading="lazy">
+        <div class="dish-row-body">
+          <div class="dish-row-name">Tiradito</div>
+          <div class="dish-row-desc">El Perú inventó el Ceviche. Los inmigrantes japoneses se instalaron en las costas y así nació el Tiradito. Pescado fresco cortado en láminas finas, estilado en lima y ají. Chef Miguel sugiere extensas variaciones: trufado, nikkei, con leche de coco, con caviar de salmón.</div>
+          <div class="dish-row-tags">
+            <span class="dish-row-tag">Nikkei</span>
+            <span class="dish-row-tag gold">Variaciones disponibles</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="dish-row" id="anticuchos">
+        <img class="dish-row-img" src="images/anticuchos-grilled-salmon-2023-06-25-4.jpeg" alt="Anticuchos" loading="lazy">
+        <div class="dish-row-body">
+          <div class="dish-row-name">Anticuchos</div>
+          <div class="dish-row-desc">Comida callejera originada en el Perú. Brochetas a la parrilla. Todos piden la versión de salmón o pez local. Es un método grandioso para cocinar pescado. ¡Pedí una bandeja de anticuchos de pescado para catering! Si alquilás al Chef Miguel, cocina la versión de corazón de res en el sitio, tan tierna que pensarás que es el mejor bife que probaste.</div>
+          <div class="dish-row-tags">
+            <span class="dish-row-tag">A la brasa</span>
+            <span class="dish-row-tag gold">Catering disponible</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="dish-row" id="jalea">
+        <img class="dish-row-img" src="images/jalea-deep-fry-n-seafood-2023-05-07-2.jpg" alt="Jalea" loading="lazy">
+        <div class="dish-row-body">
+          <div class="dish-row-name">Jalea</div>
+          <div class="dish-row-desc">No podemos decidir qué es mejor, vos decidís. Mix de mariscos frito en un rebozado liviano, o mix de mariscos frito y luego cocido a vapor en bouillabaisse. Pedí que pongan pulpo extra — Chef Miguel maneja el pulpo como los dioses.</div>
+          <div class="dish-row-tags">
+            <span class="dish-row-tag">Mariscos</span>
+            <span class="dish-row-tag">Frito</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="dish-row" id="pulpo">
+        <img class="dish-row-img" src="images/pulpo-al-olivo-octopus-salad-n-calamata-dressing-2023-05-07.jpeg" alt="Pulpo al Olivo" loading="lazy">
+        <div class="dish-row-body">
+          <div class="dish-row-name">Pulpo al Olivo</div>
+          <div class="dish-row-desc">Pulpo cocido cortado estilo sashimi, con aderezo de aceituna calamata. Chef Miguel ha dominado el arte de ablandar el pulpo.</div>
+          <div class="dish-row-tags">
+            <span class="dish-row-tag red">Signature</span>
+            <span class="dish-row-tag">Del Mar</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="dish-row" id="fuego">
+        <div class="dish-row-img-placeholder">🔥</div>
+        <div class="dish-row-body">
+          <div class="dish-row-name">Fuego de Conchitas</div>
+          <div class="dish-row-desc">Scallops en su concha. Estos están en llamas. También funciona muy bien con un mix de mariscos cortados estilo pupu.</div>
+          <div class="dish-row-tags">
+            <span class="dish-row-tag">Al fuego</span>
+            <span class="dish-row-tag">Mariscos</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- PRINCIPALES -->
+  <div class="menu-category" id="principales">
+    <div class="category-header">
+      <span class="section-eyebrow">Categoría</span>
+      <h2 class="category-title">Platos <em>Principales</em></h2>
+      <span class="category-count">6 platos</span>
+    </div>
+    <div class="dishes-list">
+
+      <div class="dish-row" id="lomo">
+        <img class="dish-row-img" src="images/lomo-saltado-stir-fry-beef-2023-10-22-1.jpeg" alt="Lomo Saltado" loading="lazy">
+        <div class="dish-row-body">
+          <div class="dish-row-name">Lomo Saltado</div>
+          <div class="dish-row-desc">Si llegaste hasta acá, googleá qué es el Lomo Saltado. El plato nacional oficial del Perú, en el registro nacional. Este plato fue inventado por los chinos en el Perú. El stir-fry peruano por excelencia.</div>
+          <div class="dish-row-tags">
+            <span class="dish-row-tag red">Plato Nacional</span>
+            <span class="dish-row-tag">Chifa</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="dish-row" id="aji">
+        <img class="dish-row-img" src="images/aji-de-gallina-pulled-chicken-on-aji-cream-sauce-2023-10-21-4.jpeg" alt="Ají de Gallina" loading="lazy">
+        <div class="dish-row-body">
+          <div class="dish-row-name">Ají de Gallina</div>
+          <div class="dish-row-desc">La bechamel peruana, con un toque dulce y picante, sobre pollo deshilachado con sofrito. Ají de Mariscos es la versión de mar. O probá el Ají de Tofu, versión del mapo tofu. Excelente para catering o como dip para chips, masa o apio.</div>
+          <div class="dish-row-tags">
+            <span class="dish-row-tag gold">Favorito</span>
+            <span class="dish-row-tag">Catering ideal</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="dish-row" id="arroz-mariscos">
+        <img class="dish-row-img" src="images/arroz-con-mariscos-rice-n-seafood-2023-04-21-4.jpeg" alt="Arroz con Mariscos" loading="lazy">
+        <div class="dish-row-body">
+          <div class="dish-row-name">Arroz con Mariscos</div>
+          <div class="dish-row-desc">Llamalo paella, arroz pegajoso con mariscos, o risotto de mariscos. ¿Por qué ir a España, China o Italia cuando podés tener los 3 en un plato? Chef Miguel lo hace a pedido y conserva bien como bandeja para catering.</div>
+          <div class="dish-row-tags">
+            <span class="dish-row-tag">Mariscos</span>
+            <span class="dish-row-tag">Catering disponible</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="dish-row" id="arroz-pollo">
+        <img class="dish-row-img" src="images/arroz-con-pollo-rice-n-chicken-w-cilantro-spinach-sauce-2023-11-19-4.jpeg" alt="Arroz con Pollo" loading="lazy">
+        <div class="dish-row-body">
+          <div class="dish-row-name">Arroz con Pollo</div>
+          <div class="dish-row-desc">Un plato que queda mejor cocinado en casa. Hacé que Chef Miguel haga una olla grande para tu evento. No corta caminos, el pollo se cocina junto con el arroz en fuego de hornalla manual. Muslos dorados con hueso, tiernos. El pollo se cocina en arroz con salsa de cilantro y espinaca.</div>
+          <div class="dish-row-tags">
+            <span class="dish-row-tag">Tradicional</span>
+            <span class="dish-row-tag">Catering disponible</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="dish-row" id="plancha">
+        <img class="dish-row-img" src="images/plancha-de-carne-grill-n-steak-2023-04-23-1.jpg" alt="Plancha" loading="lazy">
+        <div class="dish-row-body">
+          <div class="dish-row-name">Plancha</div>
+          <div class="dish-row-desc">Chef Miguel pasó 10 años en Argentina. Esta es su versión del bife argentino. Igual de maravillosa con pescado, mariscos o tofu blando.</div>
+          <div class="dish-row-tags">
+            <span class="dish-row-tag">A la plancha</span>
+            <span class="dish-row-tag">Argentina</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="dish-row" id="chaufa">
+        <img class="dish-row-img" src="images/chaufa-de-salmon-fried-rice-n-salmon-2023-09-30-3.jpeg" alt="Chaufa" loading="lazy">
+        <div class="dish-row-body">
+          <div class="dish-row-name">Chaufas</div>
+          <div class="dish-row-desc">De los inmigrantes chinos en el Perú, chaufa es la fonética del chino chao fan, o arroz frito. El favorito es con salmón, y por supuesto puede hacerse con cualquier carne o tofu.</div>
+          <div class="dish-row-tags">
+            <span class="dish-row-tag">Chifa</span>
+            <span class="dish-row-tag gold">El favorito</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ENTRADAS -->
+  <div class="menu-category" id="entradas">
+    <div class="category-header">
+      <span class="section-eyebrow">Categoría</span>
+      <h2 class="category-title"><em>Entradas</em> &amp; Ensaladas</h2>
+      <span class="category-count">5 platos</span>
+    </div>
+    <div class="dishes-list">
+
+      <div class="dish-row" id="causa">
+        <img class="dish-row-img" src="images/causa-de-pulpo-al-olivo-potato-salad-n-octopus-in-calamata-salad-2024-01-13-4.jpeg" alt="Causa" loading="lazy">
+        <div class="dish-row-body">
+          <div class="dish-row-name">Causa</div>
+          <div class="dish-row-desc">Causa significa "por la causa." Lima, 1821, los locales llamaban así al Día de la Independencia del Perú de España. La causa se vendía en las veredas de Lima por rebeldes disfrazados de food trucks, a cambio de un papelito con datos de inteligencia. Es la versión peruana de la ensalada de papa.</div>
+          <div class="dish-row-tags">
+            <span class="dish-row-tag">Historia</span>
+            <span class="dish-row-tag">Entrada</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="dish-row" id="palta">
+        <img class="dish-row-img" src="images/palta-rellena-con-tartar-de-salmon-avocado-n-salmon-tartare-2023-06-17-1.jpg" alt="Palta Rellena" loading="lazy">
+        <div class="dish-row-body">
+          <div class="dish-row-name">Palta Rellena</div>
+          <div class="dish-row-desc">Ensalada de palta rellena. Puede ser perfectamente la versión vegana de los huevos rellenos.</div>
+          <div class="dish-row-tags">
+            <span class="dish-row-tag">Vegano opcional</span>
+            <span class="dish-row-tag">Entrada</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="dish-row" id="huancaina">
+        <img class="dish-row-img" src="images/papa-a-la-huancaina-potato-salad-n-queso-fresco-dressing-2023-04-21-1.jpeg" alt="Papa a la Huancaína" loading="lazy">
+        <div class="dish-row-body">
+          <div class="dish-row-name">Papa a la Huancaína</div>
+          <div class="dish-row-desc">Rodajas de papa hervida servidas como ensalada de papa con un aderezo espeso de queso fresco, crema y ají. Este aderezo cremoso puede embotellarse y guardarse como dressing para ensaladas — va bien con todo.</div>
+          <div class="dish-row-tags">
+            <span class="dish-row-tag">Tradicional</span>
+            <span class="dish-row-tag gold">Aderezo icónico</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="dish-row" id="chilcano">
+        <img class="dish-row-img" src="images/chilcano-fish-consome-2023-05-07-3.jpg" alt="Chilcano" loading="lazy">
+        <div class="dish-row-body">
+          <div class="dish-row-name">Chilcano</div>
+          <div class="dish-row-desc">Las partes óseas del pescado se convierten en un caldo claro al instante para abrir el apetito o curar una resaca. Siempre con una pizca de cebollas y jugo de lima.</div>
+          <div class="dish-row-tags">
+            <span class="dish-row-tag">Caldo</span>
+            <span class="dish-row-tag">Entrada</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="dish-row" id="cucharitas">
+        <div class="dish-row-img-placeholder">🥄</div>
+        <div class="dish-row-body">
+          <div class="dish-row-name">Cucharitas</div>
+          <div class="dish-row-desc">Bocados en una cuchara. Presentaciones elegantes de un solo bocado, perfectas para eventos y catering de degustación.</div>
+          <div class="dish-row-tags">
+            <span class="dish-row-tag">Catering</span>
+            <span class="dish-row-tag">Degustación</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- CHIFA -->
+  <div class="menu-category" id="chifa">
+    <div class="category-header">
+      <span class="section-eyebrow">Categoría</span>
+      <h2 class="category-title">Cocina <em>Chifa</em> &amp; Nikkei</h2>
+      <span class="category-count">3 platos</span>
+    </div>
+    <div class="dishes-list">
+
+      <div class="dish-row">
+        <img class="dish-row-img" src="images/arroz-con-tinta-de-calamar-rice-n-squid-ink-2023-04-23-4.jpeg" alt="Arroz con Tinta de Calamar" loading="lazy">
+        <div class="dish-row-body">
+          <div class="dish-row-name">Arroz con Tinta de Calamar</div>
+          <div class="dish-row-desc">La versión favorita de la pasta italiana con tinta de calamar. Hecho con arroz estilo risotto, servido con calamares y bonito flakes. "Amo tanto este plato que lo pido tan seguido, y tan seguido ya no lo pido más, de tanto pedirlo."</div>
+          <div class="dish-row-tags">
+            <span class="dish-row-tag">Risotto style</span>
+            <span class="dish-row-tag gold">Personal favorite</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="dish-row">
+        <div class="dish-row-img-placeholder" style="font-size:22px">チ</div>
+        <div class="dish-row-body">
+          <div class="dish-row-name">Pollo ChiJauKay y TiPaKay</div>
+          <div class="dish-row-desc">El nombre de este plato chifa viene directamente del cantonés: 'kay' significa pollo (鸡), y 'chi jau' significa chuhou (柱候), un condimento cantonés hecho con soja, ajo, jengibre y semillas de sésamo.</div>
+          <div class="dish-row-tags">
+            <span class="dish-row-tag">Cantonés</span>
+            <span class="dish-row-tag">Chifa</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="dish-row">
+        <img class="dish-row-img" src="images/pulpo-nikkei-octopus-n-japanese-aromatics-n-potato-puree-2024-01-13.jpeg" alt="Pulpo Nikkei" loading="lazy">
+        <div class="dish-row-body">
+          <div class="dish-row-name">Pulpo Nikkei</div>
+          <div class="dish-row-desc">Pulpo con aromáticos japoneses y puré de papa. La fusión perfecta entre la tradición peruana y la influencia japonesa en las costas del Perú.</div>
+          <div class="dish-row-tags">
+            <span class="dish-row-tag">Nikkei</span>
+            <span class="dish-row-tag">Fusión</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- POSTRES -->
+  <div class="menu-category" id="postres">
+    <div class="category-header">
+      <span class="section-eyebrow">Categoría</span>
+      <h2 class="category-title"><em>Postres</em></h2>
+      <span class="category-count">3 postres</span>
+    </div>
+    <div class="dishes-list">
+
+      <div class="dish-row" id="cheesecake">
+        <img class="dish-row-img" src="images/cheesecake-de-maracuya-cheesecake-n-lilikoi-2023-05-07-3.jpeg" alt="Cheesecake de Maracuyá" loading="lazy">
+        <div class="dish-row-body">
+          <div class="dish-row-name">Cheesecake de Maracuyá</div>
+          <div class="dish-row-desc">Cheesecake de maracuyá sin horno (no-bake). Hector es un pastelero clásicamente entrenado muy avanzado, y no aprobó este postre. Sin embargo, se vende extremadamente bien. Vos sos el juez.</div>
+          <div class="dish-row-tags">
+            <span class="dish-row-tag gold">El más pedido</span>
+            <span class="dish-row-tag">Sin horno</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="dish-row">
+        <img class="dish-row-img" src="images/suspiro-de-limena-zabaglione-n-dulce-de-leche-2024-01-06.jpeg" alt="Suspiro de Limeña" loading="lazy">
+        <div class="dish-row-body">
+          <div class="dish-row-name">Suspiro de Limeña</div>
+          <div class="dish-row-desc">Zabaglione con dulce de leche. El postre clásico de Lima, etéreo y delicado como su nombre lo indica.</div>
+          <div class="dish-row-tags">
+            <span class="dish-row-tag">Lima clásico</span>
+            <span class="dish-row-tag">Postre</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="dish-row">
+        <div class="dish-row-img-placeholder">🍫</div>
+        <div class="dish-row-body">
+          <div class="dish-row-name">Tres Leches de Chocolate</div>
+          <div class="dish-row-desc">La versión chocolatosa del clásico latinoamericano. Bizcochuelo empapado en tres leches con cobertura de chocolate.</div>
+          <div class="dish-row-tags">
+            <span class="dish-row-tag">Postre</span>
+            <span class="dish-row-tag">Clásico</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- MÁS PLATOS -->
+  <div class="menu-category" id="mas">
+    <div class="category-header">
+      <span class="section-eyebrow">Categoría</span>
+      <h2 class="category-title">Más <em>Especialidades</em></h2>
+    </div>
+    <div class="dishes-list">
+
+      <div class="dish-row">
+        <img class="dish-row-img" src="images/chicharron-pork-belly-2023-07-02-3.jpeg" alt="Chicharrón" loading="lazy">
+        <div class="dish-row-body">
+          <div class="dish-row-name">Chicharrón</div>
+          <div class="dish-row-desc">Panceta de cerdo cocida a fuego lento hasta que la grasa se funde, luego frita en sí misma. Crujiente por fuera, tierna por dentro.</div>
+          <div class="dish-row-tags"><span class="dish-row-tag">Cerdo</span></div>
+        </div>
+      </div>
+
+      <div class="dish-row">
+        <img class="dish-row-img" src="images/sashimi-de-blue-fin-toro-sashimi-n-blue-fin-toro-2024-01-14.jpeg" alt="Sashimi de Blue Fin Toro" loading="lazy">
+        <div class="dish-row-body">
+          <div class="dish-row-name">Sashimi de Blue Fin Toro</div>
+          <div class="dish-row-desc">Sashimi de atún de aleta azul. Lo más fino del océano, servido en su máxima expresión.</div>
+          <div class="dish-row-tags"><span class="dish-row-tag red">Premium</span><span class="dish-row-tag">Nikkei</span></div>
+        </div>
+      </div>
+
+      <div class="dish-row">
+        <img class="dish-row-img" src="images/tartare-nikei-de-blue-fin-toro-tartare-n-blue-fin-tuna-2024-01-14.jpeg" alt="Tartare Nikkei de Blue Fin Toro" loading="lazy">
+        <div class="dish-row-body">
+          <div class="dish-row-name">Tartare Nikkei de Blue Fin Toro</div>
+          <div class="dish-row-desc">Tartare de atún de aleta azul con influencia nikkei. Fusión peruana-japonesa en su máxima expresión.</div>
+          <div class="dish-row-tags"><span class="dish-row-tag red">Premium</span><span class="dish-row-tag">Nikkei</span></div>
+        </div>
+      </div>
+
+      <div class="dish-row">
+        <img class="dish-row-img" src="images/tamales-de-lima-tamal-2023-12-17.jpeg" alt="Tamales" loading="lazy">
+        <div class="dish-row-body">
+          <div class="dish-row-name">Tamales de Lima</div>
+          <div class="dish-row-desc">Los tamales al estilo limeño. Una tradición que va mucho más allá de un plato — es cultura, familia y celebración.</div>
+          <div class="dish-row-tags"><span class="dish-row-tag">Lima</span><span class="dish-row-tag">Tradición</span></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- BOTTOM CTA -->
+  <div class="menu-order-banner" style="margin-top:0; margin-bottom:0; background:var(--ocean); border-color:var(--ocean);">
+    <div>
+      <div class="menu-order-text" style="color:var(--white);">¿Querés organizar un <strong style="color:var(--aji);">catering</strong>?</div>
+      <div class="menu-order-note" style="color:var(--ocean-light);">Chef Miguel disponible para eventos privados, festivales y celebrations</div>
+    </div>
+    <a href="contacto.html" class="btn btn-light" style="background:var(--sand);color:var(--red);border-color:transparent;">Consultar catering</a>
+  </div>
+
+</div>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <a href="index.html" class="footer-logo">
+        <img src="images/cropped-peruviancornerlogo.jpg" alt="Peruvian Corner Hawaii" onerror="this.style.display='none'">
+      </a>
+      <p class="footer-tagline">Cocina Peruana Criolla<br>hechos con pasión y amor</p>
+      <div class="footer-social">
+        <a href="https://www.instagram.com/peruviancornerhawaii/" target="_blank">Instagram</a>
+        <a href="https://www.yelp.com/biz/peruvian-corner-hawaii-waialua-3" target="_blank">Yelp</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Mar &amp; Tierra</h4>
+      <a href="#ceviche">Ceviche</a>
+      <a href="#tiradito">Tiradito</a>
+      <a href="#anticuchos">Anticuchos</a>
+      <a href="#pulpo">Pulpo al Olivo</a>
+    </div>
+    <div class="footer-col">
+      <h4>Principales</h4>
+      <a href="#lomo">Lomo Saltado</a>
+      <a href="#aji">Ají de Gallina</a>
+      <a href="#arroz-mariscos">Arroz con Mariscos</a>
+      <a href="#plancha">Plancha</a>
+    </div>
+    <div class="footer-col">
+      <h4>Visita</h4>
+      <a href="contacto.html">67-456 Goodale Ave</a>
+      <a href="contacto.html">Waialua, HI 96791</a>
+      <a href="contacto.html">Mar–Dom · 10:30–19:30</a>
+      <a href="tel:8088880234">(808) 888-0234</a>
+    </div>
+  </div>
+  <div class="footer-bottom"><span>© 2025 Peruvian Corner Hawaii</span></div>
+</footer>
+
+<script src="shared.js"></script>
+</body>
+</html>

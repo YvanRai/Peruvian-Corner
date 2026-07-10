@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chef Miguel Torres — Peruvian Corner Hawaii</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="shared.css">
+<style>
+/* CHEF PAGE */
+.chef-hero {
+  padding-top: var(--nav-h);
+  background: var(--ink);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 520px;
+}
+.chef-hero-text {
+  padding: 4rem var(--pad) 4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 560px;
+}
+.chef-hero-text .section-eyebrow { color: var(--aji); }
+.chef-hero-text .section-eyebrow::before { background: var(--aji); opacity: 0.5; }
+.chef-hero-text .section-title { color: var(--white); }
+.chef-hero-text .section-title em { color: var(--aji); }
+.chef-hero-desc {
+  font-size: 15px;
+  color: rgba(255,255,255,0.65);
+  line-height: 1.85;
+  margin-bottom: 2rem;
+}
+.chef-hero-img {
+  position: relative;
+  overflow: hidden;
+}
+.chef-hero-img img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  object-position: center top;
+}
+.chef-hero-img-placeholder {
+  width: 100%; height: 100%;
+  background: var(--ocean);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-size: 120px;
+  font-weight: 300;
+  color: rgba(255,255,255,0.15);
+}
+
+/* STATS */
+.chef-stats {
+  background: var(--sand);
+  border-bottom: 0.5px solid var(--sand-dark);
+  padding: 0 var(--pad);
+}
+.chef-stats-inner {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: var(--sand-dark);
+}
+.stat-card {
+  background: var(--sand);
+  padding: 2rem 1.5rem;
+  text-align: center;
+}
+.stat-num {
+  font-family: var(--font-display);
+  font-size: 42px;
+  font-weight: 300;
+  color: var(--red);
+  line-height: 1;
+  margin-bottom: 4px;
+}
+.stat-label {
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--ink-light);
+}
+
+/* BIO */
+.chef-bio {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 5rem var(--pad);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5rem;
+  align-items: start;
+}
+.chef-bio-text h2 {
+  font-family: var(--font-display);
+  font-size: clamp(24px, 3vw, 34px);
+  font-weight: 300;
+  color: var(--ink);
+  margin-bottom: 1.5rem;
+  line-height: 1.2;
+}
+.chef-bio-text h2 em { font-style: italic; color: var(--red); }
+.chef-bio-text p {
+  font-size: 14.5px;
+  color: var(--ink-mid);
+  line-height: 1.85;
+  margin-bottom: 1.25rem;
+}
+.chef-bio-text p strong { color: var(--ink); font-weight: 500; }
+
+.chef-timeline { display: flex; flex-direction: column; gap: 0; }
+.timeline-item {
+  display: grid;
+  grid-template-columns: 80px 1fr;
+  gap: 1.5rem;
+  padding-bottom: 2rem;
+  position: relative;
+}
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: 38px; top: 28px;
+  width: 1px; bottom: 0;
+  background: var(--sand-dark);
+}
+.timeline-item:last-child::before { display: none; }
+.timeline-year {
+  font-family: var(--font-display);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--red);
+  text-align: center;
+  padding-top: 2px;
+  position: relative;
+  z-index: 1;
+}
+.timeline-year::after {
+  content: '';
+  display: block;
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: var(--sand-dark);
+  border: 2px solid var(--red);
+  margin: 6px auto 0;
+}
+.timeline-content h4 {
+  font-family: var(--font-display);
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--ink);
+  margin-bottom: 4px;
+}
+.timeline-content p {
+  font-size: 13px;
+  color: var(--ink-mid);
+  line-height: 1.65;
+  margin-bottom: 0 !important;
+}
+
+/* FANNY */
+.fanny-section {
+  background: var(--ocean-pale);
+  border-top: 0.5px solid var(--sand-mid);
+  border-bottom: 0.5px solid var(--sand-mid);
+  padding: 5rem var(--pad);
+}
+.fanny-inner {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 4rem;
+  align-items: center;
+}
+.fanny-avatar {
+  width: 180px; height: 180px;
+  border-radius: 50%;
+  background: var(--ocean-mid);
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-display);
+  font-size: 72px; font-weight: 300;
+  color: rgba(255,255,255,0.6);
+  margin: 0 auto;
+  border: 3px solid var(--ocean-light);
+}
+.fanny-text h2 {
+  font-family: var(--font-display);
+  font-size: clamp(22px, 3vw, 30px);
+  font-weight: 300;
+  color: var(--ink);
+  margin-bottom: 1rem;
+}
+.fanny-text h2 em { font-style: italic; color: var(--ocean); }
+.fanny-text p {
+  font-size: 14.5px;
+  color: var(--ink-mid);
+  line-height: 1.85;
+  margin-bottom: 1rem;
+}
+
+/* GALLERY */
+.chef-gallery {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 5rem var(--pad);
+}
+.gallery-masonry {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 6px;
+}
+.gallery-masonry img {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: var(--radius-sm);
+  transition: opacity 0.2s;
+}
+.gallery-masonry img:hover { opacity: 0.88; }
+.gallery-masonry img:nth-child(3) { grid-column: span 2; aspect-ratio: 2/1; }
+
+/* PRESS */
+.chef-press {
+  background: var(--sand);
+  border-top: 0.5px solid var(--sand-mid);
+  padding: 5rem var(--pad);
+}
+.chef-press-inner {
+  max-width: var(--max-w);
+  margin: 0 auto;
+}
+.press-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+.press-card {
+  background: var(--white);
+  border: 0.5px solid var(--sand-mid);
+  border-radius: var(--radius-md);
+  padding: 2rem;
+}
+.press-card-quote {
+  font-family: var(--font-display);
+  font-size: 17px;
+  font-style: italic;
+  font-weight: 300;
+  color: var(--ink);
+  line-height: 1.6;
+  margin-bottom: 1.25rem;
+  border-left: 2px solid var(--aji);
+  padding-left: 1rem;
+}
+.press-card-source {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--ink-light);
+}
+.press-card-source a { color: var(--ocean); }
+
+@media (max-width: 900px) {
+  .chef-hero { grid-template-columns: 1fr; }
+  .chef-hero-img { height: 300px; }
+  .chef-stats-inner { grid-template-columns: repeat(2, 1fr); }
+  .chef-bio { grid-template-columns: 1fr; gap: 3rem; }
+  .fanny-inner { grid-template-columns: 1fr; gap: 2rem; text-align: center; }
+  .gallery-masonry { grid-template-columns: repeat(2, 1fr); }
+  .gallery-masonry img:nth-child(3) { grid-column: span 1; aspect-ratio: 1; }
+  .press-cards { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <a href="index.html" class="nav-logo">
+    <div class="logo-mark">
+      <img src="images/cropped-peruviancornerlogo.jpg" alt="Peruvian Corner" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+      <div class="logo-fallback">PC</div>
+    </div>
+    <div class="logo-text">
+      <span class="logo-name">Peruvian Corner</span>
+      <span class="logo-sub">Hawaii · 808</span>
+    </div>
+  </a>
+  <button class="nav-hamburger" id="navToggle" aria-label="Abrir menú"><span></span><span></span><span></span></button>
+  <div class="nav-links" id="navLinks">
+    <div class="nav-item has-dropdown">
+      <button class="nav-link dropdown-toggle" aria-expanded="false">Menú <span class="chevron">▾</span></button>
+      <div class="dropdown">
+        <div class="dropdown-col">
+          <p class="dropdown-heading">Mar &amp; Tierra</p>
+          <a href="menu.html#ceviche" class="dropdown-link">Ceviche</a>
+          <a href="menu.html#tiradito" class="dropdown-link">Tiradito</a>
+          <a href="menu.html#anticuchos" class="dropdown-link">Anticuchos</a>
+          <a href="menu.html#pulpo" class="dropdown-link">Pulpo al Olivo</a>
+        </div>
+        <div class="dropdown-col">
+          <p class="dropdown-heading">Principales</p>
+          <a href="menu.html#lomo" class="dropdown-link">Lomo Saltado</a>
+          <a href="menu.html#aji" class="dropdown-link">Ají de Gallina</a>
+          <a href="menu.html#arroz-mariscos" class="dropdown-link">Arroz con Mariscos</a>
+          <a href="menu.html#plancha" class="dropdown-link">Plancha</a>
+        </div>
+        <div class="dropdown-col">
+          <p class="dropdown-heading">Entradas &amp; Postres</p>
+          <a href="menu.html#causa" class="dropdown-link">Causa</a>
+          <a href="menu.html#huancaina" class="dropdown-link">Papa a la Huancaína</a>
+          <a href="menu.html#cheesecake" class="dropdown-link">Cheesecake de Maracuyá</a>
+          <a href="menu.html" class="dropdown-link dropdown-all">Ver todos →</a>
+        </div>
+      </div>
+    </div>
+    <a href="chef.html" class="nav-link active">Chef Miguel</a>
+    <a href="contacto.html" class="nav-link">Contacto</a>
+    <a href="https://peruvian-corner-waialua.cloveronline.com/menu/all" target="_blank" class="nav-cta">Ordenar online</a>
+  </div>
+</nav>
+
+<!-- CHEF HERO -->
+<div class="chef-hero">
+  <div class="chef-hero-text">
+    <span class="section-eyebrow">El cocinero</span>
+    <h1 class="section-title">Chef<br><em>Miguel Torres</em></h1>
+    <p class="chef-hero-desc">De Lima a Buenos Aires, de Buenos Aires a Hawaii. Una vida dedicada a honrar la cocina peruana con los ingredientes más frescos del Pacífico.</p>
+    <a href="menu.html" class="btn btn-primary">Ver el menú</a>
+  </div>
+  <div class="chef-hero-img">
+    <img src="images/2024-03-17-1.jpeg" alt="Chef Miguel Torres" onerror="this.outerHTML='<div class=chef-hero-img-placeholder>M</div>'">
+  </div>
+</div>
+
+<!-- STATS -->
+<div class="chef-stats">
+  <div class="chef-stats-inner">
+    <div class="stat-card">
+      <div class="stat-num">20+</div>
+      <div class="stat-label">Años de cocina</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">10</div>
+      <div class="stat-label">Años en Argentina</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">25+</div>
+      <div class="stat-label">Platos en carta</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">4★</div>
+      <div class="stat-label">En Yelp Hawaii</div>
+    </div>
+  </div>
+</div>
+
+<!-- BIO -->
+<div class="chef-bio">
+  <div class="chef-bio-text">
+    <h2>Una vida entre<br><em>fogones y mercados</em></h2>
+    <p>Chef Miguel Torres nació en Lima, Perú, donde aprendió desde chico los secretos de la cocina criolla: el ceviche de las cevicherías del barrio, los anticuchos de los carritos callejeros, el lomo saltado que inventaron los inmigrantes chinos.</p>
+    <p>Pasó <strong>10 años en Argentina</strong> perfeccionando el arte de la parrilla y el bife. Allí aprendió que la calidad del ingrediente lo es todo — una lección que hoy aplica con el pescado fresco local de Hawaii.</p>
+    <p>Llegó a Oahu y se enamoró de la North Shore. La calidad del pescado local — mahi, papio, maguro, hamachi — le permitió elevar platos como el ceviche y el tiradito a un nivel que difícilmente se encuentra fuera de Lima.</p>
+    <p>Junto a su familia, convirtió un food trailer en el <strong>Backyard Oasis de Waialua</strong>: un rincón peruano en el Pacífico, donde las mesas pintadas a mano y las flores frescas son tan importantes como los platos que salen de la cocina.</p>
+    <a href="contacto.html" class="btn btn-outline" style="margin-top:0.5rem">Contactar para catering</a>
+  </div>
+
+  <div id="historia">
+    <div class="section-eyebrow" style="margin-bottom:1.5rem">Trayectoria</div>
+    <div class="chef-timeline">
+      <div class="timeline-item">
+        <div class="timeline-year">Lima</div>
+        <div class="timeline-content">
+          <h4>Los primeros sabores</h4>
+          <p>Nacido en Lima, crecido entre cevicherías de barrio y los carritos de anticuchos de las esquinas. La cocina criolla como lenguaje nativo.</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-year">Arg.</div>
+        <div class="timeline-content">
+          <h4>Una década en Argentina</h4>
+          <p>Diez años perfeccionando el arte del fuego y la parrilla. El bife argentino como segunda naturaleza. La técnica de la plancha como emblema personal.</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-year">2021</div>
+        <div class="timeline-content">
+          <h4>Peruvian Corner nace</h4>
+          <p>Primer puesto en el Waialua Sugar Mill Market. Un food trailer, una familia, y los sabores de tres culturas en la North Shore de Oahu.</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-year">2024</div>
+        <div class="timeline-content">
+          <h4>Backyard Oasis abre sus puertas</h4>
+          <p>De food trailer a restaurante. El Backyard Oasis en Goodale Ave, Waialua — con espacio de restaurante, mesas pintadas a mano y flores frescas.</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-year">2025</div>
+        <div class="timeline-content">
+          <h4>Honolulu Magazine</h4>
+          <p>Mari Taketa escribe en Honolulu Magazine sobre "el calidad de wonderland" de Peruvian Corner. El reconocimiento llega, pero la pasión sigue igual.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FANNY -->
+<div class="fanny-section" id="fanny">
+  <div class="fanny-inner">
+    <div>
+      <div class="fanny-avatar">F</div>
+    </div>
+    <div class="fanny-text">
+      <span class="section-eyebrow" style="margin-bottom:0.5rem">El corazón del negocio</span>
+      <h2>Fanny <em>Torres</em></h2>
+      <p>Detrás de cada plato hay una historia, y detrás de Peruvian Corner hay una familia. Fanny Torres es la otra mitad de esta empresa: la que organiza, la que cuida los detalles, la que asegura que cada visita al Backyard Oasis se sienta como visitar a alguien de confianza.</p>
+      <p>Las mesas pintadas a mano, las flores frescas en los picnic tables blancos bajo las sombrillas rojas — esos detalles son Fanny. El ambiente de "wonderland" que describe Honolulu Magazine es el resultado de dos personas trabajando con el mismo amor.</p>
+    </div>
+  </div>
+</div>
+
+<!-- GALLERY -->
+<div class="chef-gallery">
+  <div class="section-eyebrow" style="margin-bottom:0.5rem">Galería</div>
+  <h2 class="section-title" style="margin-bottom:2rem">Nuestros <em>platos</em></h2>
+  <div class="gallery-masonry">
+    <img src="images/anticuchos-grilled-maguro-tuna-2023-11-19-4.jpeg" alt="Anticuchos de maguro" loading="lazy">
+    <img src="images/ceviche-clasico-de-mahi-mahi-ceviche-classic-n-mahi-mahi-2023-07-02-4.jpeg" alt="Ceviche de mahi mahi" loading="lazy">
+    <img src="images/arroz-meloso-con-mariscos-risotto-n-seafood-2023-04-21-4.jpeg" alt="Arroz meloso con mariscos" loading="lazy">
+    <img src="images/fuego-de-conchitas-fire-n-scallops-2023-09-24-3.jpeg" alt="Fuego de Conchitas" loading="lazy">
+    <img src="images/lomo-saltado-con-fideos-a-la-huancaina-stir-fry-beef-n-queso-fresco-mac-and-cheese-pasta-2023-09-30.jpeg" alt="Lomo Saltado con fideos" loading="lazy">
+    <img src="images/causa-de-tartar-de-salmon-potato-salad-n-salmon-tartare-2023-07-27-4.jpeg" alt="Causa de tartar de salmón" loading="lazy">
+    <img src="images/tiradito-trufado-sashimi-ceviche-n-truffle-oil-2023-05-01-1.jpg" alt="Tiradito trufado" loading="lazy">
+    <img src="images/chicharron-pork-belly-2023-07-02-3.jpeg" alt="Chicharrón" loading="lazy">
+  </div>
+</div>
+
+<!-- PRESS -->
+<div class="chef-press">
+  <div class="chef-press-inner">
+    <span class="section-eyebrow">Lo que dicen</span>
+    <h2 class="section-title">En la <em>prensa</em></h2>
+    <div class="press-cards">
+      <div class="press-card">
+        <div class="press-card-quote">"There's a wonderland quality to Peruvian Corner, as if fairies touched this cocoon of a space in Waialua. A smiley face sun beams from a mural and fresh flowers adorn white picnic tables under matching red umbrellas."</div>
+        <div class="press-card-source">Mari Taketa · <a href="https://www.honolulumagazine.com/latin-foodscape-peruvian-corner/" target="_blank">Honolulu Magazine</a> · Abril 2025</div>
+      </div>
+      <div class="press-card">
+        <div class="press-card-quote">"The hands that make and serve these dishes are the ones that painted the tables and set out the flowers. If you eat in, real plates appear — my yuca fries arrive on a sheen of black glass."</div>
+        <div class="press-card-source">Mari Taketa · <a href="https://www.honolulumagazine.com/latin-foodscape-peruvian-corner/" target="_blank">Honolulu Magazine</a> · Abril 2025</div>
+      </div>
+    </div>
+    <div style="margin-top:2rem;">
+      <a href="https://www.honolulumagazine.com/latin-foodscape-peruvian-corner/" target="_blank" class="btn btn-outline">Leer artículo completo</a>
+    </div>
+  </div>
+</div>
+
+<div class="cta-section" style="background:var(--ocean);padding:4rem var(--pad);text-align:center;">
+  <div style="max-width:560px;margin:0 auto">
+    <h2 class="section-title" style="color:var(--white);margin-bottom:0.75rem">¿Querés al <em style="color:var(--aji)">Chef Miguel</em><br>en tu evento?</h2>
+    <p style="font-size:14px;color:rgba(255,255,255,0.65);margin-bottom:1.75rem;line-height:1.75">Chef Miguel disponible para catering en eventos privados, festivales, cumpleaños y celebraciones. Anticuchos de corazón de res cocinados en vivo, bandeja de arroz con pollo, ají de gallina para la multitud.</p>
+    <a href="contacto.html" class="btn btn-primary btn-large">Consultar disponibilidad</a>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <a href="index.html" class="footer-logo">
+        <img src="images/cropped-peruviancornerlogo.jpg" alt="Peruvian Corner Hawaii" onerror="this.style.display='none'">
+      </a>
+      <p class="footer-tagline">Cocina Peruana Criolla<br>hechos con pasión y amor</p>
+      <div class="footer-social">
+        <a href="https://www.instagram.com/peruviancornerhawaii/" target="_blank">Instagram</a>
+        <a href="https://www.yelp.com/biz/peruvian-corner-hawaii-waialua-3" target="_blank">Yelp</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Menú</h4>
+      <a href="menu.html#ceviche">Ceviche</a>
+      <a href="menu.html#tiradito">Tiradito</a>
+      <a href="menu.html#lomo">Lomo Saltado</a>
+      <a href="menu.html">Ver todo →</a>
+    </div>
+    <div class="footer-col">
+      <h4>Nosotros</h4>
+      <a href="chef.html">Chef Miguel</a>
+      <a href="chef.html#fanny">Fanny Torres</a>
+      <a href="chef.html#historia">Nuestra historia</a>
+    </div>
+    <div class="footer-col">
+      <h4>Contacto</h4>
+      <a href="contacto.html">67-456 Goodale Ave</a>
+      <a href="contacto.html">Waialua, HI 96791</a>
+      <a href="tel:8088880234">(808) 888-0234</a>
+    </div>
+  </div>
+  <div class="footer-bottom"><span>© 2025 Peruvian Corner Hawaii</span></div>
+</footer>
+
+<script src="shared.js"></script>
+</body>
+</html>
