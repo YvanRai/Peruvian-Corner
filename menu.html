@@ -183,6 +183,7 @@
 </style>
 </head>
 <body>
+<a href="#main-content" class="skip-link">Saltar al contenido</a>
 
 <nav class="nav">
   <a href="index.html" class="nav-logo">
@@ -195,7 +196,7 @@
       <span class="logo-sub">Hawaii · 808</span>
     </div>
   </a>
-  <button class="nav-hamburger" id="navToggle" aria-label="Abrir menú">
+  <button class="nav-hamburger" id="navToggle" aria-label="Abrir menú" aria-expanded="false">
     <span></span><span></span><span></span>
   </button>
   <div class="nav-links" id="navLinks">
@@ -231,14 +232,21 @@
         </div>
       </div>
     </div>
+    <a href="index.html#historia" class="nav-link">Nuestra Historia</a>
+    <a href="index.html#familia" class="nav-link">Nuestra Familia</a>
+    <a href="index.html#carta" class="nav-link">Nuestra Carta</a>
     <a href="chef.html" class="nav-link">Chef Miguel</a>
     <a href="contacto.html" class="nav-link">Contacto</a>
     <a href="https://baileysperuviancuisine.toast.site/order/baileys-peruvian-cuisine-67-456-goodale-av-waialua" target="_blank" class="nav-cta">Ordenar online</a>
+    <div class="lang-switch">
+      <a href="menu.html" class="lang-link active" aria-label="Español" title="Español"><svg class="flag-icon" width="18" height="13" viewBox="0 0 20 14" aria-hidden="true"><rect width="20" height="14" fill="#fff"/><rect width="6.67" height="14" fill="#D91023"/><rect x="13.33" width="6.67" height="14" fill="#D91023"/></svg><span>ES</span></a>
+      <a href="menu-en.html" class="lang-link" aria-label="English" title="English"><svg class="flag-icon" width="18" height="13" viewBox="0 0 20 14" aria-hidden="true"><rect width="20" height="14" fill="#fff"/><rect y="0" width="20" height="2" fill="#B22234"/><rect y="4" width="20" height="2" fill="#B22234"/><rect y="8" width="20" height="2" fill="#B22234"/><rect y="12" width="20" height="2" fill="#B22234"/><rect width="9" height="8" fill="#3C3B6E"/></svg><span>EN</span></a>
+    </div>
   </div>
 </nav>
 
 <!-- PAGE HEADER -->
-<div class="page-header">
+<div class="page-header" id="main-content">
   <div class="page-header-inner">
     <span class="section-eyebrow">Carta completa</span>
     <h1 class="section-title">Nuestro <em>Menú</em></h1>
@@ -310,7 +318,6 @@
           <div class="dish-row-desc">Comida callejera originada en el Perú. Brochetas a la parrilla. Todos piden la versión de salmón o pez local. Es un método grandioso para cocinar pescado. ¡Pedí una bandeja de anticuchos de pescado para catering! Si alquilás al Chef Miguel, cocina la versión de corazón de res en el sitio, tan tierna que pensarás que es el mejor bife que probaste.</div>
           <div class="dish-row-tags">
             <span class="dish-row-tag">A la brasa</span>
-            <span class="dish-row-tag gold">Catering disponible</span>
           </div>
         </div>
       </div>
@@ -382,7 +389,6 @@
           <div class="dish-row-desc">La bechamel peruana, con un toque dulce y picante, sobre pollo deshilachado con sofrito. Ají de Mariscos es la versión de mar. O probá el Ají de Tofu, versión del mapo tofu. Excelente para catering o como dip para chips, masa o apio.</div>
           <div class="dish-row-tags">
             <span class="dish-row-tag gold">Favorito</span>
-            <span class="dish-row-tag">Catering ideal</span>
           </div>
         </div>
       </div>
@@ -394,7 +400,6 @@
           <div class="dish-row-desc">Llamalo paella, arroz pegajoso con mariscos, o risotto de mariscos. ¿Por qué ir a España, China o Italia cuando podés tener los 3 en un plato? Chef Miguel lo hace a pedido y conserva bien como bandeja para catering.</div>
           <div class="dish-row-tags">
             <span class="dish-row-tag">Mariscos</span>
-            <span class="dish-row-tag">Catering disponible</span>
           </div>
         </div>
       </div>
@@ -406,7 +411,6 @@
           <div class="dish-row-desc">Un plato que queda mejor cocinado en casa. Hacé que Chef Miguel haga una olla grande para tu evento. No corta caminos, el pollo se cocina junto con el arroz en fuego de hornalla manual. Muslos dorados con hueso, tiernos. El pollo se cocina en arroz con salsa de cilantro y espinaca.</div>
           <div class="dish-row-tags">
             <span class="dish-row-tag">Tradicional</span>
-            <span class="dish-row-tag">Catering disponible</span>
           </div>
         </div>
       </div>
@@ -443,7 +447,7 @@
     <div class="category-header">
       <span class="section-eyebrow">Categoría</span>
       <h2 class="category-title"><em>Entradas</em> &amp; Ensaladas</h2>
-      <span class="category-count">5 platos</span>
+      <span class="category-count">4 platos</span>
     </div>
     <div class="dishes-list">
 
@@ -495,18 +499,6 @@
         </div>
       </div>
 
-      <div class="dish-row" id="cucharitas">
-        <div class="dish-row-img-placeholder">🥄</div>
-        <div class="dish-row-body">
-          <div class="dish-row-name">Cucharitas</div>
-          <div class="dish-row-desc">Bocados en una cuchara. Presentaciones elegantes de un solo bocado, perfectas para eventos y catering de degustación.</div>
-          <div class="dish-row-tags">
-            <span class="dish-row-tag">Catering</span>
-            <span class="dish-row-tag">Degustación</span>
-          </div>
-        </div>
-      </div>
-
     </div>
   </div>
 
@@ -515,7 +507,7 @@
     <div class="category-header">
       <span class="section-eyebrow">Categoría</span>
       <h2 class="category-title">Cocina <em>Chifa</em> &amp; Nikkei</h2>
-      <span class="category-count">3 platos</span>
+      <span class="category-count">2 platos</span>
     </div>
     <div class="dishes-list">
 
@@ -527,18 +519,6 @@
           <div class="dish-row-tags">
             <span class="dish-row-tag">Risotto style</span>
             <span class="dish-row-tag gold">Personal favorite</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="dish-row">
-        <div class="dish-row-img-placeholder" style="font-size:22px">チ</div>
-        <div class="dish-row-body">
-          <div class="dish-row-name">Pollo ChiJauKay y TiPaKay</div>
-          <div class="dish-row-desc">El nombre de este plato chifa viene directamente del cantonés: 'kay' significa pollo (鸡), y 'chi jau' significa chuhou (柱候), un condimento cantonés hecho con soja, ajo, jengibre y semillas de sésamo.</div>
-          <div class="dish-row-tags">
-            <span class="dish-row-tag">Cantonés</span>
-            <span class="dish-row-tag">Chifa</span>
           </div>
         </div>
       </div>
@@ -592,7 +572,7 @@
       </div>
 
       <div class="dish-row">
-        <div class="dish-row-img-placeholder">🍫</div>
+        <img class="dish-row-img" src="images/tres%20leches.jpg" alt="Tres Leches de Chocolate" loading="lazy">
         <div class="dish-row-body">
           <div class="dish-row-name">Tres Leches de Chocolate</div>
           <div class="dish-row-desc">La versión chocolatosa del clásico latinoamericano. Bizcochuelo empapado en tres leches con cobertura de chocolate.</div>
@@ -659,7 +639,7 @@
       <div class="menu-order-text" style="color:var(--white);">¿Querés organizar un <strong style="color:var(--aji);">catering</strong>?</div>
       <div class="menu-order-note" style="color:var(--ocean-light);">Chef Miguel disponible para eventos privados, festivales y celebrations</div>
     </div>
-    <a href="contacto.html" class="btn btn-light" style="background:var(--sand);color:var(--red);border-color:transparent;">Consultar catering</a>
+    <a href="eventos.html" class="btn btn-light" style="background:var(--sand);color:var(--red);border-color:transparent;">Consultar catering</a>
   </div>
 
 </div>
@@ -698,7 +678,7 @@
       <a href="tel:8088880234">(808) 888-0234</a>
     </div>
   </div>
-  <div class="footer-bottom"><span>© 2025 Peruvian Corner Hawaii</span></div>
+  <div class="footer-bottom"><span>© 2025 Peruvian Corner Hawaii · <a href="privacidad.html">Política de Privacidad</a></span></div>
 </footer>
 
 <script src="shared.js"></script>

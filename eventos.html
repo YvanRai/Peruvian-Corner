@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Eventos Privados & Catering — Peruvian Corner Hawaii</title>
+<meta name="description" content="Chef Miguel cocina en vivo para tu evento privado, cumpleaños, boda o celebración en Hawaii. Anticuchos en vivo, arroz con pollo, menú personalizado. Contactanos por WhatsApp o teléfono.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="shared.css">
+<style>
+/* EVENTOS PRIVADOS PAGE */
+.events-section {
+  position: relative;
+  overflow: hidden;
+  background: var(--ink);
+  padding-top: var(--nav-h);
+}
+.events-bg-img {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+.events-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(to bottom, rgba(20,18,14,0.78), rgba(20,18,14,0.68));
+  z-index: 0;
+}
+.events-content {
+  position: relative;
+  z-index: 1;
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 5rem var(--pad);
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 3.5rem;
+  align-items: center;
+}
+.events-text .section-eyebrow { color: var(--aji); }
+.events-text .section-eyebrow::before { background: var(--aji); opacity: 0.5; }
+.events-text h1.section-title {
+  font-family: var(--font-display);
+  font-size: clamp(32px, 4.5vw, 52px);
+  font-weight: 300;
+  line-height: 1.1;
+  color: var(--white);
+  margin-bottom: 1rem;
+}
+.events-text h1.section-title em { font-style: italic; color: var(--aji); }
+.events-text p { font-size: 14.5px; color: rgba(255,255,255,0.75); line-height: 1.8; margin-bottom: 1.25rem; }
+.events-list { list-style: none; display: flex; flex-direction: column; gap: 8px; margin-bottom: 1.75rem; }
+.events-list li { font-size: 13.5px; color: rgba(255,255,255,0.85); padding-left: 1.25rem; position: relative; }
+.events-list li::before { content: '✓'; position: absolute; left: 0; color: var(--aji); font-size: 12px; }
+.events-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+.events-carousel.photo-carousel { width: 100%; aspect-ratio: 4/5; background: var(--ink); }
+.events-carousel .photo-carousel-slide { object-fit: contain; object-position: center; }
+
+@media (max-width: 900px) {
+  .events-content { grid-template-columns: 1fr; gap: 1.75rem; padding: 3rem var(--pad); }
+}
+</style>
+</head>
+<body>
+<a href="#eventos-privados" class="skip-link">Saltar al contenido</a>
+
+<nav class="nav">
+  <a href="index.html" class="nav-logo">
+    <div class="logo-mark">
+      <img src="images/cropped-peruviancornerlogo.jpg" alt="Peruvian Corner" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+      <div class="logo-fallback">PC</div>
+    </div>
+    <div class="logo-text">
+      <span class="logo-name">Peruvian Corner</span>
+      <span class="logo-sub">Hawaii · 808</span>
+    </div>
+  </a>
+  <button class="nav-hamburger" id="navToggle" aria-label="Abrir menú" aria-expanded="false"><span></span><span></span><span></span></button>
+  <div class="nav-links" id="navLinks">
+    <div class="nav-item has-dropdown">
+      <button class="nav-link dropdown-toggle" aria-expanded="false">Menú <span class="chevron">▾</span></button>
+      <div class="dropdown">
+        <div class="dropdown-col">
+          <p class="dropdown-heading">Mar &amp; Tierra</p>
+          <a href="menu.html#ceviche" class="dropdown-link">Ceviche</a>
+          <a href="menu.html#tiradito" class="dropdown-link">Tiradito</a>
+          <a href="menu.html#anticuchos" class="dropdown-link">Anticuchos</a>
+          <a href="menu.html#pulpo" class="dropdown-link">Pulpo al Olivo</a>
+        </div>
+        <div class="dropdown-col">
+          <p class="dropdown-heading">Principales</p>
+          <a href="menu.html#lomo" class="dropdown-link">Lomo Saltado</a>
+          <a href="menu.html#aji" class="dropdown-link">Ají de Gallina</a>
+          <a href="menu.html#arroz-mariscos" class="dropdown-link">Arroz con Mariscos</a>
+          <a href="menu.html#plancha" class="dropdown-link">Plancha</a>
+        </div>
+        <div class="dropdown-col">
+          <p class="dropdown-heading">Entradas &amp; Postres</p>
+          <a href="menu.html#causa" class="dropdown-link">Causa</a>
+          <a href="menu.html#huancaina" class="dropdown-link">Papa a la Huancaína</a>
+          <a href="menu.html#cheesecake" class="dropdown-link">Cheesecake de Maracuyá</a>
+          <a href="menu.html" class="dropdown-link dropdown-all">Ver todos →</a>
+        </div>
+      </div>
+    </div>
+    <a href="index.html#historia" class="nav-link">Nuestra Historia</a>
+    <a href="index.html#familia" class="nav-link">Nuestra Familia</a>
+    <a href="index.html#carta" class="nav-link">Nuestra Carta</a>
+    <a href="chef.html" class="nav-link">Chef Miguel</a>
+    <a href="contacto.html" class="nav-link">Contacto</a>
+    <a href="https://baileysperuviancuisine.toast.site/order/baileys-peruvian-cuisine-67-456-goodale-av-waialua" target="_blank" class="nav-cta">Ordenar online</a>
+    <div class="lang-switch">
+      <a href="eventos.html" class="lang-link active" aria-label="Español" title="Español"><svg class="flag-icon" width="18" height="13" viewBox="0 0 20 14" aria-hidden="true"><rect width="20" height="14" fill="#fff"/><rect width="6.67" height="14" fill="#D91023"/><rect x="13.33" width="6.67" height="14" fill="#D91023"/></svg><span>ES</span></a>
+      <a href="eventos-en.html" class="lang-link" aria-label="English" title="English"><svg class="flag-icon" width="18" height="13" viewBox="0 0 20 14" aria-hidden="true"><rect width="20" height="14" fill="#fff"/><rect y="0" width="20" height="2" fill="#B22234"/><rect y="4" width="20" height="2" fill="#B22234"/><rect y="8" width="20" height="2" fill="#B22234"/><rect y="12" width="20" height="2" fill="#B22234"/><rect width="9" height="8" fill="#3C3B6E"/></svg><span>EN</span></a>
+    </div>
+  </div>
+</nav>
+
+<!-- EVENTOS PRIVADOS -->
+<section class="events-section" id="eventos-privados">
+  <img class="events-bg-img" src="images/Evento/Evento.jpg" alt="">
+  <div class="events-overlay"></div>
+  <div class="events-content">
+    <div class="events-text">
+      <span class="section-eyebrow">Catering &amp; eventos</span>
+      <h1 class="section-title">Chef Miguel en tu <em>evento privado</em></h1>
+      <p>Chef Miguel cocina en vivo para eventos privados, festivales, cumpleaños, bodas y celebraciones en toda la isla. El menú se arma a medida de cada evento.</p>
+      <ul class="events-list">
+        <li>Anticuchos de corazón de res cocinados en vivo</li>
+        <li>Bandeja de arroz con pollo o arroz con mariscos</li>
+        <li>Ají de gallina como dip o plato principal</li>
+        <li>Cucharitas de degustación para eventos elegantes</li>
+        <li>Menú personalizado según el evento</li>
+      </ul>
+      <div class="events-actions">
+        <a href="tel:8088880234" class="btn btn-primary">Llamar: (808) 888-0234</a>
+        <a href="https://wa.me/18083677669" target="_blank" class="btn btn-ghost">Consultar por WhatsApp</a>
+      </div>
+    </div>
+    <div class="events-carousel-wrap">
+      <div class="photo-carousel events-carousel" data-interval="3000">
+        <img class="photo-carousel-slide active" src="images/Evento/Cucharita%20Miguel.jpg" alt="Cucharitas de degustación para eventos">
+        <img class="photo-carousel-slide" src="images/Evento/Eventooo.jpg" alt="Chef Miguel en un evento privado">
+        <img class="photo-carousel-slide" src="images/Evento/IMG_20231230_161651.jpg" alt="Chef Miguel cocinando en un evento">
+        <div class="photo-carousel-dots">
+          <button type="button" class="photo-carousel-dot active" aria-label="Ver foto 1"></button>
+          <button type="button" class="photo-carousel-dot" aria-label="Ver foto 2"></button>
+          <button type="button" class="photo-carousel-dot" aria-label="Ver foto 3"></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <a href="index.html" class="footer-logo">
+        <img src="images/cropped-peruviancornerlogo.jpg" alt="Peruvian Corner Hawaii" onerror="this.style.display='none'">
+      </a>
+      <p class="footer-tagline">Cocina Peruana Criolla<br>hechos con pasión y amor</p>
+      <div class="footer-social">
+        <a href="https://www.instagram.com/peruviancornerhawaii/" target="_blank">Instagram</a>
+        <a href="https://www.yelp.com/biz/peruvian-corner-hawaii-waialua-3" target="_blank">Yelp</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Menú</h4>
+      <a href="menu.html#ceviche">Ceviche</a>
+      <a href="menu.html#tiradito">Tiradito</a>
+      <a href="menu.html#lomo">Lomo Saltado</a>
+      <a href="menu.html">Ver todo →</a>
+    </div>
+    <div class="footer-col">
+      <h4>Nosotros</h4>
+      <a href="chef.html">Chef Miguel</a>
+      <a href="chef.html#fanny">Fanny Torres</a>
+      <a href="chef.html#historia">Nuestra historia</a>
+    </div>
+    <div class="footer-col">
+      <h4>Contacto</h4>
+      <a href="tel:8088880234">(808) 888-0234</a>
+      <a href="https://wa.me/18083677669" target="_blank">WhatsApp</a>
+      <a href="contacto.html">Ubicación y horarios</a>
+      <a href="https://www.instagram.com/peruviancornerhawaii/" target="_blank">Instagram</a>
+    </div>
+  </div>
+  <div class="footer-bottom"><span>© 2025 Peruvian Corner Hawaii · Cocina Peruana Criolla · Waialua, HI · <a href="privacidad.html">Política de Privacidad</a></span></div>
+</footer>
+
+<script src="shared.js"></script>
+</body>
+</html>

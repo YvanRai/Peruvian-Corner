@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Peruvian Corner Hawaii — Authentic Peruvian Criolla Cuisine in Waialua</title>
+<meta name="description" content="Family-run Peruvian restaurant in Waialua, North Shore of Hawaii. Authentic criolla cuisine, made to order by Chef Miguel and Fanny Torres — ceviche, lomo saltado, nikkei tiradito and more.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="shared.css">
+<link rel="stylesheet" href="index.css">
+</head>
+<body>
+<a href="#main-content" class="skip-link">Skip to content</a>
+
+<!-- SITE INTRO / WELCOME -->
+<div class="site-intro" id="siteIntro">
+  <video class="site-intro-video" id="siteIntroVideo" muted playsinline preload="auto"></video>
+  <div class="site-intro-overlay"></div>
+  <div class="site-intro-content">
+    <button type="button" class="btn btn-ghost site-intro-btn" id="siteIntroEnter">Enter</button>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav class="nav">
+  <a href="index-en.html" class="nav-logo">
+    <div class="logo-mark">
+      <img src="images/cropped-peruviancornerlogo.jpg" alt="Peruvian Corner" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+      <div class="logo-fallback">PC</div>
+    </div>
+    <div class="logo-text">
+      <span class="logo-name">Peruvian Corner</span>
+      <span class="logo-sub">Hawaii · 808</span>
+    </div>
+  </a>
+
+  <button class="nav-hamburger" id="navToggle" aria-label="Open menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+
+  <div class="nav-links" id="navLinks">
+    <div class="nav-item has-dropdown">
+      <button class="nav-link dropdown-toggle" aria-expanded="false">Menu <span class="chevron">▾</span></button>
+      <div class="dropdown">
+        <div class="dropdown-col">
+          <p class="dropdown-heading">Sea &amp; Land</p>
+          <a href="menu-en.html#ceviche" class="dropdown-link">Ceviche</a>
+          <a href="menu-en.html#tiradito" class="dropdown-link">Tiradito</a>
+          <a href="menu-en.html#anticuchos" class="dropdown-link">Anticuchos</a>
+          <a href="menu-en.html#jalea" class="dropdown-link">Jalea</a>
+          <a href="menu-en.html#pulpo" class="dropdown-link">Pulpo al Olivo</a>
+          <a href="menu-en.html#fuego" class="dropdown-link">Fuego de Conchitas</a>
+        </div>
+        <div class="dropdown-col">
+          <p class="dropdown-heading">Main Dishes</p>
+          <a href="menu-en.html#lomo" class="dropdown-link">Lomo Saltado</a>
+          <a href="menu-en.html#aji" class="dropdown-link">Ají de Gallina</a>
+          <a href="menu-en.html#arroz-mariscos" class="dropdown-link">Arroz con Mariscos</a>
+          <a href="menu-en.html#arroz-pollo" class="dropdown-link">Arroz con Pollo</a>
+          <a href="menu-en.html#plancha" class="dropdown-link">Plancha</a>
+          <a href="menu-en.html#chaufa" class="dropdown-link">Chaufa</a>
+        </div>
+        <div class="dropdown-col">
+          <p class="dropdown-heading">Starters &amp; Desserts</p>
+          <a href="menu-en.html#causa" class="dropdown-link">Causa</a>
+          <a href="menu-en.html#palta" class="dropdown-link">Palta Rellena</a>
+          <a href="menu-en.html#huancaina" class="dropdown-link">Papa a la Huancaína</a>
+          <a href="menu-en.html#chilcano" class="dropdown-link">Chilcano</a>
+          <a href="menu-en.html#cheesecake" class="dropdown-link">Passion Fruit Cheesecake</a>
+          <a href="menu-en.html" class="dropdown-link dropdown-all">See all dishes →</a>
+        </div>
+      </div>
+    </div>
+    <a href="#historia" class="nav-link">Our Story</a>
+    <a href="#familia" class="nav-link">Our Family</a>
+    <a href="#carta" class="nav-link">Our Menu</a>
+    <a href="chef-en.html" class="nav-link">Chef Miguel</a>
+    <a href="contacto-en.html" class="nav-link">Contact</a>
+    <a href="https://baileysperuviancuisine.toast.site/order/baileys-peruvian-cuisine-67-456-goodale-av-waialua" target="_blank" class="nav-cta">Order online</a>
+    <div class="lang-switch">
+      <a href="index.html" class="lang-link" aria-label="Español" title="Español"><svg class="flag-icon" width="18" height="13" viewBox="0 0 20 14" aria-hidden="true"><rect width="20" height="14" fill="#fff"/><rect width="6.67" height="14" fill="#D91023"/><rect x="13.33" width="6.67" height="14" fill="#D91023"/></svg><span>ES</span></a>
+      <a href="index-en.html" class="lang-link active" aria-label="English" title="English"><svg class="flag-icon" width="18" height="13" viewBox="0 0 20 14" aria-hidden="true"><rect width="20" height="14" fill="#fff"/><rect y="0" width="20" height="2" fill="#B22234"/><rect y="4" width="20" height="2" fill="#B22234"/><rect y="8" width="20" height="2" fill="#B22234"/><rect y="12" width="20" height="2" fill="#B22234"/><rect width="9" height="8" fill="#3C3B6E"/></svg><span>EN</span></a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="main-content">
+  <div class="hero-bg">
+    <picture>
+      <source media="(max-width: 768px)" srcset="images/movil%20atardecer.png">
+      <img src="images/pc%20atardecer.png" alt="" class="hero-bg-img">
+    </picture>
+    <div class="hero-overlay"></div>
+  </div>
+  <div class="hero-content">
+    <p class="hero-eyebrow">Waialua, North Shore · Hawaii</p>
+    <h1 class="hero-title">Peruvian<br><em>Criolla</em> Cuisine</h1>
+    <p class="hero-tagline">Authentic Peruvian criolla cuisine, handmade with family love,<br>in the heart of the North Shore.</p>
+    <div class="hero-actions">
+      <a href="https://baileysperuviancuisine.toast.site/order/baileys-peruvian-cuisine-67-456-goodale-av-waialua" target="_blank" class="btn btn-primary">Order online</a>
+      <a href="menu-en.html" class="btn btn-ghost">See the menu</a>
+    </div>
+  </div>
+  <div class="hero-scroll-hint">
+    <span>Scroll</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+<div class="section-seam" style="background:linear-gradient(to bottom, var(--ink), var(--ocean));"></div>
+
+<!-- PRESS BANNER -->
+<div class="press-banner">
+  <div class="press-inner">
+    <span class="press-label">Press</span>
+    <div class="press-divider"></div>
+    <blockquote class="press-quote">
+      Honolulu Magazine described Peruvian Corner as a fairy-tale-like corner tucked away in Waialua.
+    </blockquote>
+    <span class="press-source">— As reviewed by Mari Taketa, Honolulu Magazine · April 2025</span>
+    <div class="press-divider"></div>
+    <a href="https://www.honolulumagazine.com/latin-foodscape-peruvian-corner/" target="_blank" class="press-read">Read article →</a>
+  </div>
+</div>
+<div class="section-seam" style="background:linear-gradient(to bottom, var(--ocean), var(--ink));"></div>
+
+<!-- WHY CHOOSE US -->
+<section class="why-us">
+  <div class="why-us-bg-wrap">
+    <img class="why-us-bg" src="images/peruvian-corner-2.jpg" alt="">
+    <div class="why-us-overlay"></div>
+    <div class="why-us-header">
+      <span class="section-eyebrow">What sets us apart</span>
+      <h2 class="section-title">Why choose <em>Peruvian Corner?</em></h2>
+      <p class="section-sub">Everything that makes us different, in our own words and in the words of those who have already visited us.</p>
+    </div>
+  </div>
+  <div class="why-us-grid-wrap">
+    <div class="why-us-grid">
+      <div class="why-card" style="--card-photo:url('images/Diferenciales/Autenticidad.png')">
+        <h3>Real authenticity</h3>
+        <p>Ingredients you can't find in Hawaii — like rocoto pepper and purple corn — travel specially from Peru, thanks to friends who ship them to Chef Miguel.</p>
+      </div>
+      <div class="why-card" style="--card-photo:url('images/Diferenciales/negocio%20familiar.png')">
+        <h3>100% family business</h3>
+        <p>Miguel cooks, Fanny handles the desserts, and the next generation already helps out front of house. The tables they hand-painted are the ones you're sitting at.</p>
+      </div>
+      <div class="why-card" style="--card-photo:url('images/Diferenciales/cocinado%20al%20momento.png')">
+        <h3>Cooked to order</h3>
+        <p>The kitchen only fires up once your order comes in. Nothing is prepped ahead of time or reheated.</p>
+      </div>
+      <div class="why-card" style="--card-photo:url('images/Diferenciales/flexibilidad%20de%20verdad.png')">
+        <h3>Real flexibility</h3>
+        <p>Something not on the menu? If Miguel has it, he'll cook it — from a Peruvian fish stew to sushi, thanks to his time in Japanese restaurants.</p>
+      </div>
+      <div class="why-card" style="--card-photo:url('images/Diferenciales/Productores%20locales.png')">
+        <h3>Local producers</h3>
+        <p>Our vegetables come from Oahu farms. We support local producers whenever we can, just like when we got our start at the Farmers Markets.</p>
+      </div>
+      <div class="why-card" style="--card-photo:url('images/Diferenciales/comunidad.png')">
+        <h3>A real community</h3>
+        <p>The customers who come back every week know us as "Aunty Fanny and Uncle Miguel" — not just another restaurant.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="section-seam" style="background:linear-gradient(to bottom, var(--sand), var(--white));"></div>
+
+<!-- OUR STORY -->
+<section class="historia" id="historia">
+  <div class="historia-text">
+    <span class="section-eyebrow">Our story</span>
+    <h2 class="section-title">From Lima to Waialua,<br><em>a family story</em></h2>
+    <p>Miguel and Fanny Torres are Peruvian, but their story also runs through Argentina — that's where their two children were born, while Miguel cooked in well-known Peruvian-nikkei restaurants across South America. In <strong>2020 Miguel came to Hawaii alone</strong>, to help a friend open a restaurant — a plan that the COVID-19 pandemic ended up stalling.</p>
+    <p>Instead of giving up, he found another job on the island. It wasn't until <strong>2022 that he was able to bring Fanny and their two children</strong> to Hawaii. Together they started from scratch: first at Oahu's Farmers Markets, then with a food trailer parked in the yard of <strong>"The Smoking Boar and the Coconut"</strong>, in Waialua.</p>
+    <p>Today that corner has become our <strong>Backyard Oasis</strong>. We renovated it ourselves: hand-painted tables, fresh flowers under red umbrellas, and art from local artists on the walls. The hands that make and serve every dish are the same ones that painted the tables and set out the flowers.</p>
+    <p>Fresh mahi ceviche, grilled anticuchos, chifa-influenced lomo saltado, nikkei tiradito… every bite tells a story of three cultures: Peruvian, Japanese and Chinese, now united in this corner of the Pacific.</p>
+    <div class="intro-actions">
+      <a href="chef-en.html#historia" class="btn btn-outline">See the full timeline</a>
+    </div>
+  </div>
+  <div class="intro-media">
+    <div class="photo-carousel historia-carousel" data-interval="3000">
+      <img class="photo-carousel-slide active" src="images/Familia/Historia%201.jpg" alt="Torres family story 1">
+      <img class="photo-carousel-slide" src="images/Familia/Historia%202.jpg" alt="Torres family story 2">
+      <img class="photo-carousel-slide" src="images/Familia/Historia%203.jpg" alt="Torres family story 3">
+      <div class="photo-carousel-dots">
+        <button type="button" class="photo-carousel-dot active" aria-label="View photo 1"></button>
+        <button type="button" class="photo-carousel-dot" aria-label="View photo 2"></button>
+        <button type="button" class="photo-carousel-dot" aria-label="View photo 3"></button>
+      </div>
+    </div>
+    <div class="intro-caption">
+      <span>📍 From the Farmers Markets to the Backyard Oasis</span>
+    </div>
+  </div>
+</section>
+
+<!-- MEET THE CHEF -->
+<section class="chef-teaser">
+  <video class="chef-teaser-bg-video" src="images/Miguel/video%20cocinando.mp4" autoplay muted loop playsinline preload="auto" aria-label="Chef Miguel cooking"></video>
+  <div class="chef-teaser-overlay"></div>
+  <div class="chef-teaser-content">
+    <div class="chef-teaser-img">
+      <img src="images/Miguel/principal.jpeg" alt="Chef Miguel Torres">
+    </div>
+    <div class="chef-teaser-text">
+      <span class="section-eyebrow">The chef</span>
+      <h2 class="section-title">Meet <em>Chef Miguel</em></h2>
+      <p>Miguel's style is <strong>criolla</strong> cuisine: the foundation of homestyle Peruvian cooking. Before Hawaii, he worked in Peruvian-nikkei restaurants across South America and also in a Japanese restaurant — which is why he can prepare sushi and nikkei dishes with the same ease as an ají de gallina.</p>
+      <blockquote class="chef-teaser-quote">Miguel says that if a customer asks for a dish that's not on the menu — like a Peruvian fish stew — he'll still make it. Thanks to his time at a Japanese restaurant, he'll also make sushi on request.</blockquote>
+      <p class="chef-teaser-attr">— Based on Chef Miguel Torres's interview with Japanese magazine <em>agora</em> (JAL Card), June 2026</p>
+      <div style="display:flex;flex-direction:column;align-items:flex-start;gap:0.75rem;">
+        <a href="chef-en.html" class="btn btn-ghost">More about Miguel →</a>
+        <a href="eventos-en.html" class="btn btn-primary">Private Events</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- THE FAMILY -->
+<div class="familia-teaser-wrap" id="familia">
+  <section class="familia-teaser">
+    <div class="familia-teaser-text">
+      <span class="section-eyebrow">Our family</span>
+      <h2 class="section-title">The family behind <em>Peruvian Corner</em></h2>
+      <p>Behind every dish is an entire family. <strong>Fanny Torres</strong> is in charge of desserts — the lilikoi cheesecake and the tres leches so praised by our customers come from her hands. Miguel and Fanny renovated the space themselves, and today their children, born in Argentina during the years the family lived there, also help wait tables.</p>
+      <p>For customers who come back week after week, we're no longer "a restaurant" — we're <em>"Aunty Fanny and Uncle Miguel,"</em> as they fondly call us on Yelp.</p>
+      <a href="chef-en.html#fanny" class="btn btn-outline">Meet Fanny →</a>
+    </div>
+    <div class="familia-teaser-img">
+      <img src="images/Familia/principal.jpg" alt="The Torres family of Peruvian Corner" loading="lazy">
+    </div>
+  </section>
+</div>
+
+<!-- MENU PREVIEW -->
+<section class="menu-preview" id="carta">
+  <div class="menu-preview-header">
+    <span class="section-eyebrow">Our menu</span>
+    <h2 class="section-title">Signature <em>dishes</em></h2>
+    <p class="section-sub">A selection of our most requested dishes. Each one reflects the richness of three cultures. Ceviche Clásico, Lomo Saltado and the Lilikoi Cheesecake are the most praised in our reviews. Ordering online or in person reveals an even wider variety of dishes to try.</p>
+  </div>
+  <div class="dishes-grid">
+    <a href="menu-en.html#ceviche" class="dish-card">
+      <div class="dish-img-wrap">
+        <img src="images/ceviche-clasico-ceviche-classic-2023-05-07-4.jpg" alt="Ceviche Clásico" loading="lazy">
+      </div>
+      <div class="dish-info">
+        <div class="dish-name">Ceviche Clásico</div>
+        <div class="dish-desc">Fresh local fish, never frozen, marinated in lime. Mahi, papio, maguro or hamachi.</div>
+        <span class="dish-tag">Sea &amp; Land</span>
+      </div>
+    </a>
+    <a href="menu-en.html#tiradito" class="dish-card">
+      <div class="dish-img-wrap">
+        <img src="images/tiradito-de-salmon-sashimi-ceviche-n-salmon-2023-09-24-1.jpeg" alt="Tiradito" loading="lazy">
+      </div>
+      <div class="dish-info">
+        <div class="dish-name">Tiradito</div>
+        <div class="dish-desc">Nikkei influence. Thin slices of fish, tiger's milk and ají. Truffle version available.</div>
+        <span class="dish-tag">Nikkei</span>
+      </div>
+    </a>
+    <a href="menu-en.html#lomo" class="dish-card">
+      <div class="dish-img-wrap">
+        <img src="images/lomo-saltado-stir-fry-beef-2023-10-22-1.jpeg" alt="Lomo Saltado" loading="lazy">
+      </div>
+      <div class="dish-info">
+        <div class="dish-name">Lomo Saltado</div>
+        <div class="dish-desc">Peru's national dish, created by the Chinese in Lima. Beef stir-fry with potatoes and rice.</div>
+        <span class="dish-tag">National</span>
+      </div>
+    </a>
+    <a href="menu-en.html#anticuchos" class="dish-card">
+      <div class="dish-img-wrap">
+        <img src="images/anticuchos-grilled-salmon-2023-06-25-4.jpeg" alt="Anticuchos" loading="lazy">
+      </div>
+      <div class="dish-info">
+        <div class="dish-name">Anticuchos</div>
+        <div class="dish-desc">Grilled skewers. Salmon, mahi, local fish, or beef heart for catering.</div>
+        <span class="dish-tag">Grilled</span>
+      </div>
+    </a>
+    <a href="menu-en.html#aji" class="dish-card">
+      <div class="dish-img-wrap">
+        <img src="images/aji-de-gallina-pulled-chicken-on-aji-cream-sauce-2023-10-21-4.jpeg" alt="Ají de Gallina" loading="lazy">
+      </div>
+      <div class="dish-info">
+        <div class="dish-name">Ají de Gallina</div>
+        <div class="dish-desc">Shredded chicken in a creamy yellow ají sauce. Also available in seafood and tofu versions.</div>
+        <span class="dish-tag">Catering Favorite</span>
+      </div>
+    </a>
+    <a href="menu-en.html#pulpo" class="dish-card">
+      <div class="dish-img-wrap">
+        <img src="images/pulpo-al-olivo-octopus-salad-n-calamata-dressing-2023-05-07.jpeg" alt="Pulpo al Olivo" loading="lazy">
+      </div>
+      <div class="dish-info">
+        <div class="dish-name">Pulpo al Olivo</div>
+        <div class="dish-desc">Octopus cooked to perfection, sashimi style, with a kalamata olive dressing.</div>
+        <span class="dish-tag">From the Sea</span>
+      </div>
+    </a>
+  </div>
+  <div class="menu-preview-footer">
+    <a href="menu-en.html" class="btn btn-outline">See the full menu</a>
+  </div>
+</section>
+<div class="section-seam" style="background:linear-gradient(to bottom, var(--sand), var(--white));"></div>
+
+<!-- OUR CUISINE -->
+<section class="cocina-edu">
+  <div class="cocina-edu-header">
+    <span class="section-eyebrow">Three cultures, one plate</span>
+    <h2 class="section-title">What is <em>criolla</em> cuisine</h2>
+    <p class="section-sub">To understand what you're eating at Peruvian Corner, it helps to understand where it comes from.</p>
+  </div>
+  <div class="cocina-edu-grid">
+    <div class="cocina-edu-card" style="--card-photo:url('images/comidas/criolla.png')">
+      <h3>Criolla</h3>
+      <p>The foundation of homestyle Peruvian cooking: the blend of colonial Spanish tradition with Andean and indigenous ingredients. It's the starting point for almost everything Chef Miguel cooks.</p>
+    </div>
+    <div class="cocina-edu-card" style="--card-photo:url('images/comidas/nikkei.png')">
+      <h3>Nikkei (Japanese)</h3>
+      <p>Japanese immigrants who arrived in Peru brought their cutting technique and their respect for fresh fish. That blend gave birth to tiradito — and today, to the sushi Miguel prepares on request.</p>
+    </div>
+    <div class="cocina-edu-card" style="--card-photo:url('images/comidas/chifa.png')">
+      <h3>Chifa (Chinese)</h3>
+      <p>Cantonese immigrants brought the wok to Lima. That's how lomo saltado — Peru's national dish — and chaufa, fried rice with an Asian influence, were born.</p>
+    </div>
+  </div>
+</section>
+<div class="section-seam" style="background:linear-gradient(to bottom, var(--white), var(--sand));"></div>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials">
+  <div class="testimonials-header">
+    <span class="section-eyebrow">What people say about us</span>
+    <h2 class="section-title">Real <em>reviews</em></h2>
+    <p class="section-sub">91 reviews on Yelp, the vast majority 5 stars. Customers who come back week after week describe the food as a trip straight to South America and the service as a family welcoming them into their own home — that's how good a time visitors have here.</p>
+  </div>
+  <div class="testimonials-footer">
+    <a href="https://www.yelp.com/biz/peruvian-corner-hawaii-waialua-3" target="_blank" class="btn btn-outline">See all reviews on Yelp</a>
+  </div>
+</section>
+<div class="section-seam" style="background:linear-gradient(to bottom, var(--sand), var(--white));"></div>
+
+<!-- LOCATION -->
+<section class="location-teaser">
+  <div class="location-teaser-header">
+    <span class="section-eyebrow">How to find us</span>
+    <h2 class="section-title">We hide <em>well</em></h2>
+    <p class="section-sub">We're in the yard of "The Smoking Boar and the Coconut," in Waialua — easy to drive right past if you're not looking for it. We recommend using GPS.</p>
+  </div>
+  <div class="info-bar">
+    <div class="info-item">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+      <div>
+        <div class="info-label">Hours</div>
+        <div class="info-val">Tue – Sun · 10:30 am – 7:30 pm</div>
+      </div>
+    </div>
+    <div class="info-sep"></div>
+    <div class="info-item">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+      <div>
+        <div class="info-label">Address</div>
+        <div class="info-val">67-456 Goodale Ave, Waialua HI 96791</div>
+      </div>
+    </div>
+    <div class="info-sep"></div>
+    <div class="info-item">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.91a16 16 0 0 0 8 8l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 23.73 18"/></svg>
+      <div>
+        <div class="info-label">WhatsApp / Phone</div>
+        <div class="info-val">(808) 888-0234</div>
+      </div>
+    </div>
+    <div class="info-sep"></div>
+    <div class="info-item">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2C8 2 5 5 5 9c0 5 7 13 7 13s7-8 7-13c0-4-3-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+      <div>
+        <div class="info-label">Easy to find</div>
+        <div class="info-val">Pet-friendly · Private events welcome</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MARKETS -->
+<section class="markets">
+  <div class="markets-content">
+    <span class="section-eyebrow">Farmers Markets</span>
+    <h2 class="section-title">Made with <em>passion</em></h2>
+    <p>We got our start at Oahu's farmers markets and we still travel the island. Find us at:</p>
+    <ul class="market-list">
+      <li>Waialua United Church of Christ</li>
+      <li>Waialua Old Sugar Mill Market</li>
+      <li>Kailua — Hispanic Heritage Month @ Island Pacific Academy</li>
+      <li>Mililani Mauka Elementary</li>
+      <li>Wahiawa Middle School</li>
+      <li>Waiāhole Elementary</li>
+      <li>Cinco de Mayo Festival @ Ward's Fisherman Wharf</li>
+    </ul>
+    <p class="markets-note">Follow our Instagram to find out where we'll be each week.</p>
+    <a href="https://www.instagram.com/peruviancornerhawaii/" target="_blank" class="btn btn-outline">@peruviancornerhawaii</a>
+  </div>
+  <div class="markets-img">
+    <img src="images/waialua-farmers-2024-02.jpeg" alt="Waialua Farmers Market 2023">
+    <div class="markets-caption">Waialua Sugar Mill Market · our first steps</div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="cta-inner">
+    <h2 class="cta-title">Ready to <em>order?</em></h2>
+    <p class="cta-sub">Call a few minutes before coming to the Backyard Oasis, or order straight online. We also take orders through WhatsApp.</p>
+    <div class="cta-actions">
+      <a href="https://baileysperuviancuisine.toast.site/order/baileys-peruvian-cuisine-67-456-goodale-av-waialua" target="_blank" class="btn btn-primary btn-large">Order online</a>
+      <a href="contacto-en.html" class="btn btn-ghost-light">See contact &amp; location</a>
+    </div>
+    <p class="cta-phone">📞 (808) 888-0234 · WhatsApp · Phone · Text</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <a href="index-en.html" class="footer-logo">
+        <img src="images/cropped-peruviancornerlogo.jpg" alt="Peruvian Corner Hawaii" onerror="this.style.display='none'">
+      </a>
+      <p class="footer-tagline">Peruvian Criolla Cuisine<br>made with passion and love</p>
+      <div class="footer-social">
+        <a href="https://www.instagram.com/peruviancornerhawaii/" target="_blank">Instagram</a>
+        <a href="https://www.yelp.com/biz/peruvian-corner-hawaii-waialua-3" target="_blank">Yelp</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Menu</h4>
+      <a href="menu-en.html#ceviche">Ceviche</a>
+      <a href="menu-en.html#tiradito">Tiradito</a>
+      <a href="menu-en.html#lomo">Lomo Saltado</a>
+      <a href="menu-en.html#anticuchos">Anticuchos</a>
+      <a href="menu-en.html#aji">Ají de Gallina</a>
+      <a href="menu-en.html">See all →</a>
+    </div>
+    <div class="footer-col">
+      <h4>About Us</h4>
+      <a href="chef-en.html">Chef Miguel</a>
+      <a href="chef-en.html#fanny">Fanny Torres</a>
+      <a href="chef-en.html#historia">Our story</a>
+      <a href="https://www.honolulumagazine.com/latin-foodscape-peruvian-corner/" target="_blank">Honolulu Magazine</a>
+    </div>
+    <div class="footer-col">
+      <h4>Visit</h4>
+      <a href="contacto-en.html">67-456 Goodale Ave</a>
+      <a href="contacto-en.html">Waialua, HI 96791</a>
+      <a href="contacto-en.html">Tue–Sun · 10:30–19:30</a>
+      <a href="tel:8088880234">(808) 888-0234</a>
+      <a href="contacto-en.html#faq">Frequently Asked Questions</a>
+      <a href="https://baileysperuviancuisine.toast.site/order/baileys-peruvian-cuisine-67-456-goodale-av-waialua" target="_blank">Order online</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 Peruvian Corner Hawaii · Peruvian Criolla Cuisine · Waialua, HI · <a href="privacidad-en.html">Privacy Policy</a></span>
+  </div>
+</footer>
+
+<script src="shared.js"></script>
+</body>
+</html>

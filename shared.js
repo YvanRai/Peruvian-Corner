@@ -4,14 +4,57 @@
 
 document.addEventListener('DOMContentLoaded', () => {
 
+  // --- Site intro / welcome splash (homepage only) ---
+  // Shows on a real reload of index.html, or on first arrival from outside the site.
+  // Does NOT show when navigating here from another page of the same site (e.g. nav links).
+  const siteIntro = document.getElementById('siteIntro');
+  if (siteIntro) {
+    const getNavigationType = () => {
+      const entries = performance.getEntriesByType && performance.getEntriesByType('navigation');
+      if (entries && entries.length && entries[0].type) return entries[0].type;
+      if (performance.navigation) return ['navigate', 'reload', 'back_forward'][performance.navigation.type] || 'navigate';
+      return 'navigate';
+    };
+    const isReload = getNavigationType() === 'reload';
+    const cameFromSameSite = document.referrer && document.referrer.startsWith(location.origin);
+
+    if (!isReload && cameFromSameSite) {
+      siteIntro.remove();
+    } else {
+      const enterBtn = document.getElementById('siteIntroEnter');
+      const introVideo = siteIntro.querySelector('.site-intro-video');
+
+      document.documentElement.classList.add('intro-locked');
+      enterBtn?.focus({ preventScroll: true });
+
+      // Load only the matching orientation's video (avoids fetching both files)
+      if (introVideo) {
+        const isMobile = window.matchMedia('(max-width: 768px)').matches;
+        introVideo.src = isMobile ? 'images/Movile%20video.mp4' : 'images/PC%20video.mp4';
+        introVideo.load();
+        introVideo.play().catch(() => {});
+      }
+
+      const closeIntro = () => {
+        siteIntro.classList.add('site-intro--closing');
+        document.documentElement.classList.remove('intro-locked');
+        introVideo?.pause();
+        setTimeout(() => siteIntro.remove(), 900);
+      };
+
+      enterBtn?.addEventListener('click', closeIntro);
+    }
+  }
+
   // --- Mobile hamburger menu ---
   const navToggle = document.getElementById('navToggle');
   const navLinks = document.getElementById('navLinks');
 
   if (navToggle && navLinks) {
     navToggle.addEventListener('click', () => {
-      navLinks.classList.toggle('open');
-      navToggle.classList.toggle('open');
+      const isOpen = navLinks.classList.toggle('open');
+      navToggle.classList.toggle('open', isOpen);
+      navToggle.setAttribute('aria-expanded', String(isOpen));
     });
   }
 
@@ -51,6 +94,8 @@ document.addEventListener('DOMContentLoaded', () => {
     link.addEventListener('click', () => {
       if (navLinks && navLinks.classList.contains('open')) {
         navLinks.classList.remove('open');
+        navToggle?.classList.remove('open');
+        navToggle?.setAttribute('aria-expanded', 'false');
       }
     });
   });
@@ -61,6 +106,58 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('scroll', () => {
       nav.classList.toggle('scrolled', window.scrollY > 10);
     });
+  }
+
+  // --- Photo carousels (auto-advance + manual dot selection) ---
+  document.querySelectorAll('.photo-carousel').forEach((carousel) => {
+    const slides = carousel.querySelectorAll('.photo-carousel-slide');
+    const dots = carousel.querySelectorAll('.photo-carousel-dot');
+    if (slides.length < 2) return;
+
+    const interval = parseInt(carousel.dataset.interval, 10) || 4500;
+    let current = [...slides].findIndex((s) => s.classList.contains('active'));
+    if (current < 0) current = 0;
+    let timer;
+
+    const show = (i) => {
+      slides[current].classList.remove('active');
+      dots[current]?.classList.remove('active');
+      current = i;
+      slides[current].classList.add('active');
+      dots[current]?.classList.add('active');
+    };
+    const next = () => show((current + 1) % slides.length);
+    const startAuto = () => {
+      clearInterval(timer);
+      timer = setInterval(next, interval);
+    };
+
+    dots.forEach((dot, i) => {
+      dot.addEventListener('click', () => {
+        if (i === current) return;
+        show(i);
+        startAuto();
+      });
+    });
+
+    startAuto();
+  });
+
+  // --- Why-us cards: staggered reveal sliding in from the right on scroll ---
+  const whyCards = document.querySelectorAll('.why-card');
+  if (whyCards.length) {
+    const whyCardObserver = new IntersectionObserver((entries, obs) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const card = entry.target;
+          const index = [...whyCards].indexOf(card);
+          setTimeout(() => card.classList.add('revealed'), index * 250);
+          obs.unobserve(card);
+        }
+      });
+    }, { threshold: 0.15 });
+
+    whyCards.forEach((card) => whyCardObserver.observe(card));
   }
 
   // --- Active subnav highlight on menu page ---

@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Contacto y Ubicación — Peruvian Corner Hawaii</title>
+<meta name="description" content="Dirección, horario, teléfono y preguntas frecuentes de Peruvian Corner Hawaii. Estamos detrás de The Smoking Boar and the Coconut en Waialua — pet-friendly y aceptamos eventos privados.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
@@ -116,14 +117,18 @@
   text-align: center;
   gap: 8px;
   padding: 1.25rem 1rem;
-  border: 0.5px solid var(--sand-dark);
+  border: 1px solid transparent;
   border-radius: var(--radius-md);
   text-decoration: none;
   color: var(--ink);
-  background: var(--white);
-  transition: border-color 0.2s, background 0.2s;
+  background: linear-gradient(var(--white), var(--white)) padding-box,
+              linear-gradient(135deg, var(--sand-dark), transparent) border-box;
+  transition: background 0.2s;
 }
-.order-option:hover { border-color: var(--ocean-light); background: var(--ocean-pale); }
+.order-option:hover {
+  background: linear-gradient(var(--ocean-pale), var(--ocean-pale)) padding-box,
+              linear-gradient(135deg, var(--ocean-light), transparent) border-box;
+}
 .order-option svg { width: 24px; height: 24px; color: var(--aji); }
 .order-option-title { font-family: var(--font-display); font-size: 15px; font-weight: 600; color: var(--ink); }
 .order-option-sub { font-size: 11px; color: var(--ink-light); line-height: 1.4; }
@@ -135,14 +140,18 @@
   align-items: center;
   gap: 12px;
   padding: 12px 16px;
-  border: 0.5px solid var(--sand-dark);
+  border: 1px solid transparent;
   border-radius: var(--radius-md);
   text-decoration: none;
   color: var(--ink);
-  transition: all 0.2s;
-  background: var(--white);
+  transition: background 0.2s;
+  background: linear-gradient(var(--white), var(--white)) padding-box,
+              linear-gradient(135deg, var(--sand-dark), transparent) border-box;
 }
-.social-link:hover { border-color: var(--ocean-light); background: var(--ocean-pale); }
+.social-link:hover {
+  background: linear-gradient(var(--ocean-pale), var(--ocean-pale)) padding-box,
+              linear-gradient(135deg, var(--ocean-light), transparent) border-box;
+}
 .social-link svg { width: 20px; height: 20px; flex-shrink: 0; }
 .social-link-name { font-size: 13px; font-weight: 500; color: var(--ink); }
 .social-link-handle { font-size: 11px; color: var(--ink-light); }
@@ -230,31 +239,48 @@
   flex-shrink: 0;
 }
 
-/* CATERING CARD */
-.catering-card {
-  background: var(--ocean);
-  border-radius: var(--radius-md);
-  padding: 2rem;
-  color: var(--white);
+/* FAQ */
+.faq-section {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 1rem var(--pad) 6rem;
 }
-.catering-card h3 {
+.faq-header { max-width: 640px; margin: 0 auto 3rem; text-align: center; }
+.faq-header .section-eyebrow { justify-content: center; }
+.faq-header .page-header-sub { max-width: 100%; margin: 0.5rem auto 0; }
+.faq-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.75rem 3rem;
+}
+.faq-item h3 {
   font-family: var(--font-display);
-  font-size: 22px;
-  font-weight: 300;
-  color: var(--white);
-  margin-bottom: 0.75rem;
-  line-height: 1.2;
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--ink);
+  margin-bottom: 0.4rem;
+  line-height: 1.3;
 }
-.catering-card h3 em { font-style: italic; color: var(--aji); }
-.catering-card p { font-size: 13px; color: rgba(255,255,255,0.65); line-height: 1.75; margin-bottom: 1.25rem; }
-.catering-list { list-style: none; display: flex; flex-direction: column; gap: 5px; margin-bottom: 1.5rem; }
-.catering-list li { font-size: 13px; color: rgba(255,255,255,0.75); padding-left: 1rem; position: relative; }
-.catering-list li::before { content: '✓'; position: absolute; left: 0; color: var(--aji); font-size: 11px; }
-.catering-card .btn-light { background: var(--sand); color: var(--red); border: none; }
+.faq-item p {
+  font-size: 13.5px;
+  color: var(--ink-mid);
+  line-height: 1.75;
+}
+.faq-note {
+  text-align: center;
+  font-size: 13px;
+  color: var(--ink-light);
+  font-style: italic;
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 0.5px solid var(--sand-mid);
+}
+.faq-note a { color: var(--ocean); font-style: normal; }
 
 @media (max-width: 900px) {
   .contact-layout { grid-template-columns: 1fr; gap: 3rem; }
   .order-options { grid-template-columns: 1fr 1fr; }
+  .faq-grid { grid-template-columns: 1fr; gap: 1.75rem; }
 }
 @media (max-width: 500px) {
   .order-options { grid-template-columns: 1fr; }
@@ -262,6 +288,7 @@
 </style>
 </head>
 <body>
+<a href="#main-content" class="skip-link">Saltar al contenido</a>
 
 <nav class="nav">
   <a href="index.html" class="nav-logo">
@@ -274,7 +301,7 @@
       <span class="logo-sub">Hawaii · 808</span>
     </div>
   </a>
-  <button class="nav-hamburger" id="navToggle" aria-label="Abrir menú"><span></span><span></span><span></span></button>
+  <button class="nav-hamburger" id="navToggle" aria-label="Abrir menú" aria-expanded="false"><span></span><span></span><span></span></button>
   <div class="nav-links" id="navLinks">
     <div class="nav-item has-dropdown">
       <button class="nav-link dropdown-toggle" aria-expanded="false">Menú <span class="chevron">▾</span></button>
@@ -302,18 +329,25 @@
         </div>
       </div>
     </div>
+    <a href="index.html#historia" class="nav-link">Nuestra Historia</a>
+    <a href="index.html#familia" class="nav-link">Nuestra Familia</a>
+    <a href="index.html#carta" class="nav-link">Nuestra Carta</a>
     <a href="chef.html" class="nav-link">Chef Miguel</a>
     <a href="contacto.html" class="nav-link active">Contacto</a>
     <a href="https://baileysperuviancuisine.toast.site/order/baileys-peruvian-cuisine-67-456-goodale-av-waialua" target="_blank" class="nav-cta">Ordenar online</a>
+    <div class="lang-switch">
+      <a href="contacto.html" class="lang-link active" aria-label="Español" title="Español"><svg class="flag-icon" width="18" height="13" viewBox="0 0 20 14" aria-hidden="true"><rect width="20" height="14" fill="#fff"/><rect width="6.67" height="14" fill="#D91023"/><rect x="13.33" width="6.67" height="14" fill="#D91023"/></svg><span>ES</span></a>
+      <a href="contacto-en.html" class="lang-link" aria-label="English" title="English"><svg class="flag-icon" width="18" height="13" viewBox="0 0 20 14" aria-hidden="true"><rect width="20" height="14" fill="#fff"/><rect y="0" width="20" height="2" fill="#B22234"/><rect y="4" width="20" height="2" fill="#B22234"/><rect y="8" width="20" height="2" fill="#B22234"/><rect y="12" width="20" height="2" fill="#B22234"/><rect width="9" height="8" fill="#3C3B6E"/></svg><span>EN</span></a>
+    </div>
   </div>
 </nav>
 
 <!-- PAGE HEADER -->
-<div class="page-header">
+<div class="page-header" id="main-content">
   <div class="page-header-inner">
     <span class="section-eyebrow">Visitanos</span>
     <h1 class="section-title">Contacto &amp; <em>Ubicación</em></h1>
-    <p class="page-header-sub">Estamos en Waialua, North Shore. Llamá antes de venir, o pedí online. También disponibles para catering y eventos.</p>
+    <p class="page-header-sub">Estamos en el patio de "The Smoking Boar and the Coconut", en Waialua — fácil de pasar de largo, así que te recomendamos usar el GPS. Llamá antes de venir, o pedí online. Pet-friendly y disponibles para catering y eventos privados.</p>
   </div>
 </div>
 
@@ -335,7 +369,7 @@
         <div class="contact-detail-text">
           <div class="contact-detail-label">Dirección</div>
           <div class="contact-detail-val">
-            <a href="https://maps.google.com/?q=67-456+Goodale+Ave+Waialua+HI+96791" target="_blank">
+            <a href="https://maps.google.com/?q=Peruvian+Corner+Hawaii,+67-456+Goodale+Ave,+Waialua,+HI+96791" target="_blank">
               67-456 Goodale Ave<br>Waialua, HI 96791
             </a>
           </div>
@@ -367,6 +401,16 @@
           <div class="contact-detail-val">Expandimos al espacio de restaurante del frente — ¡venite a comer en mesa!</div>
         </div>
       </div>
+
+      <div class="contact-detail-row">
+        <div class="contact-detail-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        </div>
+        <div class="contact-detail-text">
+          <div class="contact-detail-label">Cómo encontrarnos</div>
+          <div class="contact-detail-val">Estamos en el patio de "The Smoking Boar and the Coconut". Es fácil pasar de largo — usá el GPS y buscá el letrero de neón.</div>
+        </div>
+      </div>
     </div>
 
     <!-- CONTACT METHODS -->
@@ -390,7 +434,7 @@
         </div>
         <div class="contact-detail-text">
           <div class="contact-detail-label">WhatsApp / Texto</div>
-          <div class="contact-detail-val"><a href="https://wa.me/18088880234" target="_blank">(808) 888-0234 · Escribir por WhatsApp</a></div>
+          <div class="contact-detail-val"><a href="https://wa.me/18083677669" target="_blank">(808) 367-7669 · Escribir por WhatsApp</a></div>
         </div>
       </div>
 
@@ -419,10 +463,10 @@
           <span class="order-option-title">Online</span>
           <span class="order-option-sub">Clover · pago seguro</span>
         </a>
-        <a href="https://wa.me/18088880234" target="_blank" class="order-option">
+        <a href="https://wa.me/18083677669" target="_blank" class="order-option">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
           <span class="order-option-title">WhatsApp</span>
-          <span class="order-option-sub">(808) 888-0234</span>
+          <span class="order-option-sub">(808) 367-7669</span>
         </a>
         <a href="tel:8088880234" class="order-option">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.91a16 16 0 0 0 8 8l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 23.73 18"/></svg>
@@ -485,7 +529,7 @@
     <!-- MAP -->
     <div class="map-embed">
       <iframe
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3718.5!2d-158.13!3d21.578!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjHCsDM0JzQwLjgiTiAxNTjCsDA3JzQ4LjAiVw!5e0!3m2!1ses!2sus!4v1234567890"
+        src="https://www.google.com/maps?q=Peruvian+Corner+Hawaii,+67-456+Goodale+Ave,+Waialua,+HI+96791&output=embed"
         allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
         title="Ubicación de Peruvian Corner Hawaii">
       </iframe>
@@ -496,7 +540,7 @@
         <div style="font-family:var(--font-display);font-size:16px;font-weight:600;color:var(--ink);">67-456 Goodale Ave, Waialua HI</div>
         <div style="font-size:12px;color:var(--ink-light);margin-top:3px;">Mar – Dom · 10:30 am – 7:30 pm · Backyard Oasis</div>
       </div>
-      <a href="https://maps.google.com/?q=67-456+Goodale+Ave+Waialua+HI+96791" target="_blank" class="btn btn-outline" style="white-space:nowrap">Abrir en Maps</a>
+      <a href="https://maps.google.com/?q=Peruvian+Corner+Hawaii,+67-456+Goodale+Ave,+Waialua,+HI+96791" target="_blank" class="btn btn-outline" style="white-space:nowrap">Abrir en Maps</a>
     </div>
 
     <!-- MARKETS -->
@@ -516,23 +560,73 @@
       </ul>
     </div>
 
-    <!-- CATERING CARD -->
-    <div class="catering-card">
-      <h3>¿Catering para tu <em>evento</em>?</h3>
-      <p>Chef Miguel disponible para eventos privados, festivales, cumpleaños, bodas y celebraciones en toda la isla.</p>
-      <ul class="catering-list">
-        <li>Anticuchos de corazón de res cocinados en vivo</li>
-        <li>Bandeja de arroz con pollo o arroz con mariscos</li>
-        <li>Ají de gallina como dip o plato principal</li>
-        <li>Cucharitas de degustación para eventos elegantes</li>
-        <li>Menú personalizado según el evento</li>
-      </ul>
-      <a href="tel:8088880234" class="btn btn-light">Llamar para consultar</a>
-    </div>
-
   </div>
 
 </div>
+
+<!-- FAQ -->
+<section class="faq-section" id="faq">
+  <div class="faq-header">
+    <span class="section-eyebrow">Antes de venir</span>
+    <h2 class="section-title">Preguntas <em>frecuentes</em></h2>
+    <p class="page-header-sub">Respuestas basadas en nuestra propia experiencia y en lo que nos cuentan quienes ya nos visitaron.</p>
+  </div>
+  <div class="faq-grid">
+    <div class="faq-item">
+      <h3>¿Qué hace diferente a Peruvian Corner?</h3>
+      <p>Somos un negocio 100% familiar: Miguel cocina, Fanny hace los postres, y sus hijos ya ayudan a atender las mesas. Renovamos el local nosotros mismos y traemos ingredientes peruanos que no se consiguen en Hawaii — como rocoto y maíz morado — a través de amigos en Perú.</p>
+    </div>
+    <div class="faq-item">
+      <h3>¿Qué tipo de comida peruana ofrecen?</h3>
+      <p>Cocina criolla peruana con fuerte influencia nikkei (japonesa) y chifa (china) — el mestizaje que caracteriza a la gastronomía del Perú.</p>
+    </div>
+    <div class="faq-item">
+      <h3>¿Qué recomiendan si es mi primera vez?</h3>
+      <p>El Ceviche Clásico, el Lomo Saltado y el Cheesecake de Lilikoi son los platos que más elogian nuestros clientes en sus reseñas.</p>
+    </div>
+    <div class="faq-item">
+      <h3>¿Preparan la comida al momento?</h3>
+      <p>Sí. La cocina se pone en marcha recién cuando llega tu pedido — nada se prepara con anticipación.</p>
+    </div>
+    <div class="faq-item">
+      <h3>¿Usan ingredientes auténticos peruanos?</h3>
+      <p>Sí. Los que no se consiguen en Hawaii —como el rocoto o el maíz morado— los conseguimos por medio de amigos que nos los envían desde Perú.</p>
+    </div>
+    <div class="faq-item">
+      <h3>¿Trabajan con productores locales?</h3>
+      <p>Sí, las verduras vienen de granjas de Oahu. Empezamos nosotros mismos en los Farmers Markets de la isla y seguimos apoyando a productores locales.</p>
+    </div>
+    <div class="faq-item">
+      <h3>¿Dónde están ubicados exactamente?</h3>
+      <p>En el patio de "The Smoking Boar and the Coconut", 67-456 Goodale Ave, Waialua. La entrada es fácil de pasar de largo — te recomendamos usar GPS.</p>
+    </div>
+    <div class="faq-item">
+      <h3>¿Qué es la cocina criolla?</h3>
+      <p>Es la base de la comida casera peruana: la mezcla entre la tradición española colonial y los ingredientes andinos e indígenas.</p>
+    </div>
+    <div class="faq-item">
+      <h3>¿Qué es la cocina Nikkei?</h3>
+      <p>La fusión entre la cocina peruana y la japonesa, traída por los inmigrantes japoneses que se instalaron en el Perú. De ahí nace, por ejemplo, el tiradito.</p>
+    </div>
+    <div class="faq-item">
+      <h3>¿Qué bebidas tradicionales ofrecen?</h3>
+      <p>Chicha morada (bebida de maíz morado) e Inca Kola, dos clásicos infaltables de la mesa peruana.</p>
+    </div>
+    <div class="faq-item">
+      <h3>¿Hacen catering o eventos privados?</h3>
+      <p>Sí. Chef Miguel cocina en vivo para eventos privados, festivales, cumpleaños y celebraciones en toda la isla. <a href="eventos.html">Ver más sobre eventos privados →</a></p>
+    </div>
+    <div class="faq-item">
+      <h3>¿Puedo pedir algo que no está en la carta?</h3>
+      <p>Si Miguel tiene los ingredientes, lo prepara igual — desde un sudado de pescado hasta sushi, gracias a su experiencia en restaurantes japoneses.</p>
+    </div>
+    <div class="faq-item">
+      <h3>¿Es pet-friendly?</h3>
+      <p>Sí, podés venir con tu perro — todo el espacio es al aire libre.</p>
+    </div>
+  </div>
+  <p class="faq-note">¿Tenés otra pregunta, como si hace falta reservar? Escribinos por <a href="https://wa.me/18083677669" target="_blank">WhatsApp</a> o llamá al <a href="tel:8088880234">(808) 888-0234</a> y te respondemos directo.</p>
+</section>
 
 <footer class="footer">
   <div class="footer-inner">
@@ -562,12 +656,12 @@
     <div class="footer-col">
       <h4>Contacto</h4>
       <a href="tel:8088880234">(808) 888-0234</a>
-      <a href="https://wa.me/18088880234" target="_blank">WhatsApp</a>
+      <a href="https://wa.me/18083677669" target="_blank">WhatsApp</a>
       <a href="https://baileysperuviancuisine.toast.site/order/baileys-peruvian-cuisine-67-456-goodale-av-waialua" target="_blank">Ordenar online</a>
       <a href="https://www.instagram.com/peruviancornerhawaii/" target="_blank">Instagram</a>
     </div>
   </div>
-  <div class="footer-bottom"><span>© 2025 Peruvian Corner Hawaii · Cocina Peruana Criolla · Waialua, HI</span></div>
+  <div class="footer-bottom"><span>© 2025 Peruvian Corner Hawaii · Cocina Peruana Criolla · Waialua, HI · <a href="privacidad.html">Política de Privacidad</a></span></div>
 </footer>
 
 <script src="shared.js"></script>
