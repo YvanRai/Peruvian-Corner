@@ -11,6 +11,8 @@
 <link rel="stylesheet" href="shared.css">
 <style>
 /* CHEF PAGE */
+.section-seam { width: 100%; height: 70px; }
+@media (max-width: 900px) { .section-seam { height: 40px; } }
 .chef-hero {
   padding-top: var(--nav-h);
   background: var(--ink);
@@ -180,7 +182,6 @@
 /* FANNY */
 .fanny-section {
   background: var(--ocean-pale);
-  border-top: 0.5px solid var(--sand-mid);
   border-bottom: 0.5px solid var(--sand-mid);
   padding: 5rem var(--pad);
 }
@@ -288,7 +289,50 @@
 }
 .press-card-source a { color: var(--ocean); }
 
+/* INTERNATIONAL CAREER */
+.venues-section { max-width: var(--max-w); margin: 0 auto; padding: 0 var(--pad) 5rem; }
+.venues-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: 2rem; }
+.venue-card {
+  border: 1px solid transparent;
+  border-radius: var(--radius-md);
+  background: linear-gradient(var(--sand), var(--sand)) padding-box,
+              linear-gradient(135deg, var(--sand-dark), transparent) border-box;
+  padding: 1.25rem 1.5rem;
+  transition: transform 0.25s ease, background 0.3s ease, box-shadow 0.25s ease;
+}
+.venue-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 28px rgba(20,18,14,0.1);
+  background: linear-gradient(var(--aji-pale), var(--aji-pale)) padding-box,
+              linear-gradient(135deg, var(--aji), var(--ocean-mid)) border-box;
+}
+.venue-card h4 { font-family: var(--font-display); font-size: 17px; font-weight: 600; color: var(--ink); margin-bottom: 2px; }
+.venue-card span { font-size: 12px; color: var(--ink-light); display: block; }
+.venue-card small { font-size: 11.5px; color: var(--ink-mid); }
+
+/* TRAINING & RECOGNITION */
+.recognition-section { background: var(--sand); border-top: 0.5px solid var(--sand-mid); padding: 5rem var(--pad); }
+.recognition-inner { max-width: var(--max-w); margin: 0 auto; }
+.recognition-sub { font-size: 14px; color: var(--ink-mid); max-width: 640px; line-height: 1.75; margin-top: 0.5rem; }
+.recognition-images { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; margin: 2rem 0 2.5rem; }
+.recognition-card { background: var(--white); border-radius: var(--radius-md); overflow: hidden; border: 0.5px solid var(--sand-dark); }
+.recognition-card img { width: 100%; aspect-ratio: 4/3; object-fit: contain; background: var(--ink); padding: 1.25rem; display: block; }
+.recognition-card-body { padding: 1rem 1.25rem; }
+.recognition-card-body h4 { font-family: var(--font-display); font-size: 14.5px; font-weight: 600; color: var(--ink); margin-bottom: 3px; }
+.recognition-card-body p { font-size: 11.5px; color: var(--ink-light); line-height: 1.6; }
+.recognition-press-label { font-size: 11px; font-weight: 500; letter-spacing: 1.6px; text-transform: uppercase; color: var(--ocean-mid); margin-bottom: 1rem; }
+.press-card-summary {
+  font-size: 13.5px;
+  color: var(--ink-mid);
+  line-height: 1.7;
+  border-left: 2px solid var(--ocean-light);
+  padding-left: 1rem;
+  margin-bottom: 1.25rem;
+}
+
 @media (max-width: 900px) {
+  .venues-grid { grid-template-columns: 1fr 1fr; }
+  .recognition-images { grid-template-columns: 1fr; }
   .chef-hero { grid-template-columns: 1fr; }
   .chef-hero-img { height: 300px; }
   .chef-stats-inner { grid-template-columns: repeat(2, 1fr); }
@@ -414,7 +458,7 @@
   <div class="chef-bio-text">
     <h2>A life among<br><em>stoves and markets</em></h2>
     <p>Chef Miguel Torres was born in Lima, Peru, where he learned the secrets of criolla cooking from a young age: the ceviche from neighborhood cevicherías, the anticuchos from street carts, the lomo saltado invented by Chinese immigrants.</p>
-    <p>Along with Fanny, he lived for several years in <strong>Argentina</strong> — where their two children were born — while cooking at well-known Peruvian-nikkei restaurants across South America and also at a Japanese restaurant, which is where his ease with sushi and nikkei dishes comes from.</p>
+    <p>Along with Fanny, he lived for several years in <strong>Argentina</strong> — where their two children were born — while leading kitchens at well-known Peruvian-nikkei restaurants across South America, including Osaka Nikkei, Fabric Sushi Bar and Tigre Morado in Buenos Aires, and also at a Japanese restaurant, which is where his ease with sushi and nikkei dishes comes from.</p>
     <p>He arrived <strong>in Hawaii alone in 2020</strong>, to help a friend open a restaurant. The COVID-19 pandemic put a stop to that plan, but Miguel found another job and didn't give up. It wasn't until <strong>2022 that he was able to bring Fanny and their two children</strong> to the island.</p>
     <p>The quality of Oahu's local fish — mahi, papio, maguro, hamachi — allowed him to elevate dishes like ceviche and tiradito to a level rarely found outside of Lima.</p>
     <p>Together with his family, he turned a food trailer parked behind a Waialua restaurant into the <strong>Backyard Oasis</strong>: a Peruvian corner in the Pacific, renovated by their own hands, where hand-painted tables and fresh flowers matter just as much as the dishes coming out of the kitchen. If something's not on the menu, Miguel will still cook it if he has the ingredients — from a fish stew to a plate of sushi.</p>
@@ -434,8 +478,8 @@
       <div class="timeline-item">
         <div class="timeline-year">Arg.</div>
         <div class="timeline-content">
-          <h4>Years in Argentina</h4>
-          <p>Miguel and Fanny live for several years in Argentina, where their two children are born. Miguel cooks at well-known Peruvian-nikkei restaurants and also at a Japanese restaurant.</p>
+          <h4>Years in South America</h4>
+          <p>Miguel and Fanny live for several years in Argentina, where their two children are born. Miguel leads kitchens at Peruvian-nikkei restaurants across Argentina, Brazil and Uruguay — over a decade of experience before arriving in Hawaii.</p>
         </div>
       </div>
       <div class="timeline-item">
@@ -469,6 +513,112 @@
     </div>
   </div>
 </div>
+
+<!-- INTERNATIONAL CAREER -->
+<!-- source: professional portfolio provided by the client (CV, certificates and Argentina/Brazil press mentions) -->
+<div class="venues-section">
+  <span class="section-eyebrow">Before Hawaii</span>
+  <h2 class="section-title">His career across <em>South America</em></h2>
+  <p class="section-sub">Over a decade leading Peruvian-nikkei kitchens in Argentina, Brazil and Uruguay before crossing the Pacific.</p>
+  <div class="venues-grid">
+    <div class="venue-card">
+      <h4>Osaka Nikkei</h4>
+      <span>Buenos Aires, Argentina</span>
+      <small>Kitchen team for the restaurant's opening</small>
+    </div>
+    <div class="venue-card">
+      <h4>Sipán</h4>
+      <span>Buenos Aires, Argentina</span>
+      <small>Peruvian cuisine</small>
+    </div>
+    <div class="venue-card">
+      <h4>Olaya</h4>
+      <span>Buenos Aires, Argentina</span>
+      <small>Peruvian cuisine</small>
+    </div>
+    <div class="venue-card">
+      <h4>Dashi Cocina Oriental</h4>
+      <span>Buenos Aires, Argentina</span>
+      <small>Head Chef</small>
+    </div>
+    <div class="venue-card">
+      <h4>Restaurante Ceviche</h4>
+      <span>Buenos Aires, Argentina</span>
+      <small>Head Chef</small>
+    </div>
+    <div class="venue-card">
+      <h4>MBS Cocina Fusión</h4>
+      <span>Buenos Aires, Argentina</span>
+      <small>Japanese-Chinese-Thai · Head Chef</small>
+    </div>
+    <div class="venue-card">
+      <h4>Maremoto</h4>
+      <span>São Paulo, Brazil</span>
+      <small>Head Chef</small>
+    </div>
+    <div class="venue-card">
+      <h4>Particular Events</h4>
+      <span>Punta del Este, Uruguay</span>
+      <small>Head Chef for private events</small>
+    </div>
+    <div class="venue-card">
+      <h4>Fabric Nikkei Sushi Bar</h4>
+      <span>Buenos Aires, Argentina</span>
+      <small>From brigade chef to kitchen supervisor (2016–2020)</small>
+    </div>
+    <div class="venue-card">
+      <h4>Tigre Morado</h4>
+      <span>Buenos Aires, Argentina</span>
+      <small>Chef in charge of the kitchen</small>
+    </div>
+  </div>
+</div>
+
+<!-- TRAINING & RECOGNITION -->
+<div class="recognition-section">
+  <div class="recognition-inner">
+    <span class="section-eyebrow">Training & recognition</span>
+    <h2 class="section-title">Years of <em>study and dedication</em></h2>
+    <p class="recognition-sub">Before fully committing to gastronomy, Miguel served in the Peruvian Navy. Here are some of his culinary training certificates and honors.</p>
+    <div class="recognition-images">
+      <div class="recognition-card">
+        <img src="images/Miguel/certificado-uthgra-chef.png" alt="Chef Diploma, UTHGRA" loading="lazy">
+        <div class="recognition-card-body">
+          <h4>Chef Diploma</h4>
+          <p>UTHGRA (Union of Tourism, Hotel and Gastronomy Workers) · Buenos Aires, December 2008</p>
+        </div>
+      </div>
+      <div class="recognition-card">
+        <img src="images/Miguel/medalla-marina-peru.png" alt="Military service medal" loading="lazy">
+        <div class="recognition-card-body">
+          <h4>Service medal</h4>
+          <p>Peruvian Navy, 1995</p>
+        </div>
+      </div>
+      <div class="recognition-card">
+        <img src="images/Miguel/trofeo-contingente-naval.png" alt="4th Naval Contingent trophy" loading="lazy">
+        <div class="recognition-card-body">
+          <h4>Naval reunion</h4>
+          <p>4th Naval Contingent, San Lorenzo Naval School</p>
+        </div>
+      </div>
+    </div>
+    <div class="recognition-press-label">In the South American press</div>
+    <div class="press-card-summary">
+      A feature on Buenos Aires' new wave of fusion restaurants, highlighting the kitchen at Tigre Morado under Miguel's lead.
+      <div class="press-card-source" style="margin-top:6px"><a href="https://www.clarin.com/arq/diseno/restaurantes-fusion-imagenes-sabores-pacifico_0_BNHExuwF.html" target="_blank">Clarín</a> · March 4, 2020</div>
+    </div>
+    <div class="press-card-summary">
+      An article on Tigre Morado describing how Miguel balances authentic Peruvian cooking with local Buenos Aires tastes.
+      <div class="press-card-source" style="margin-top:6px"><a href="https://noticias.perfil.com/noticias/restaurante/tigre-morado-el-ultimo-rugido-de-la-moda.phtml" target="_blank">Noticias.Perfil</a> · January 6, 2020</div>
+    </div>
+    <div class="press-card-summary">
+      An article on Fabric Nikkei Sushi Bar comparing his work leading the kitchen to global references in nikkei cuisine.
+      <div class="press-card-source" style="margin-top:6px"><a href="https://www.fondodeolla.com/nota/15409-este-fabric-es-mucho-mas-que-sushi/" target="_blank">Fondo de Olla</a> · September 18, 2018</div>
+    </div>
+  </div>
+</div>
+<div class="section-seam" style="background:linear-gradient(to bottom, var(--sand), var(--ocean-pale));"></div>
 
 <!-- FANNY -->
 <div class="fanny-section" id="fanny">
