@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- PLACEHOLDER DOMAIN: https://yvanrai.github.io/Peruvian-Corner. Update every loc and xhtml:link below to the final production domain before/at launch. -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
+  <url>
+    <loc>https://yvanrai.github.io/Peruvian-Corner/</loc>
+    <lastmod>2026-08-25</lastmod>
+    <xhtml:link rel="alternate" hreflang="es" href="https://yvanrai.github.io/Peruvian-Corner/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://yvanrai.github.io/Peruvian-Corner/index-en.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yvanrai.github.io/Peruvian-Corner/"/>
+  </url>
+  <url>
+    <loc>https://yvanrai.github.io/Peruvian-Corner/index-en.html</loc>
+    <lastmod>2026-08-25</lastmod>
+    <xhtml:link rel="alternate" hreflang="es" href="https://yvanrai.github.io/Peruvian-Corner/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://yvanrai.github.io/Peruvian-Corner/index-en.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yvanrai.github.io/Peruvian-Corner/"/>
+  </url>
+
+  <url>
+    <loc>https://yvanrai.github.io/Peruvian-Corner/menu.html</loc>
+    <lastmod>2026-08-25</lastmod>
+    <xhtml:link rel="alternate" hreflang="es" href="https://yvanrai.github.io/Peruvian-Corner/menu.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://yvanrai.github.io/Peruvian-Corner/menu-en.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yvanrai.github.io/Peruvian-Corner/menu.html"/>
+  </url>
+  <url>
+    <loc>https://yvanrai.github.io/Peruvian-Corner/menu-en.html</loc>
+    <lastmod>2026-08-25</lastmod>
+    <xhtml:link rel="alternate" hreflang="es" href="https://yvanrai.github.io/Peruvian-Corner/menu.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://yvanrai.github.io/Peruvian-Corner/menu-en.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yvanrai.github.io/Peruvian-Corner/menu.html"/>
+  </url>
+
+  <url>
+    <loc>https://yvanrai.github.io/Peruvian-Corner/chef.html</loc>
+    <lastmod>2026-09-02</lastmod>
+    <xhtml:link rel="alternate" hreflang="es" href="https://yvanrai.github.io/Peruvian-Corner/chef.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://yvanrai.github.io/Peruvian-Corner/chef-en.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yvanrai.github.io/Peruvian-Corner/chef.html"/>
+  </url>
+  <url>
+    <loc>https://yvanrai.github.io/Peruvian-Corner/chef-en.html</loc>
+    <lastmod>2026-09-02</lastmod>
+    <xhtml:link rel="alternate" hreflang="es" href="https://yvanrai.github.io/Peruvian-Corner/chef.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://yvanrai.github.io/Peruvian-Corner/chef-en.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yvanrai.github.io/Peruvian-Corner/chef.html"/>
+  </url>
+
+  <url>
+    <loc>https://yvanrai.github.io/Peruvian-Corner/contacto.html</loc>
+    <lastmod>2026-08-25</lastmod>
+    <xhtml:link rel="alternate" hreflang="es" href="https://yvanrai.github.io/Peruvian-Corner/contacto.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://yvanrai.github.io/Peruvian-Corner/contacto-en.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yvanrai.github.io/Peruvian-Corner/contacto.html"/>
+  </url>
+  <url>
+    <loc>https://yvanrai.github.io/Peruvian-Corner/contacto-en.html</loc>
+    <lastmod>2026-08-25</lastmod>
+    <xhtml:link rel="alternate" hreflang="es" href="https://yvanrai.github.io/Peruvian-Corner/contacto.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://yvanrai.github.io/Peruvian-Corner/contacto-en.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yvanrai.github.io/Peruvian-Corner/contacto.html"/>
+  </url>
+
+  <url>
+    <loc>https://yvanrai.github.io/Peruvian-Corner/eventos.html</loc>
+    <lastmod>2026-08-06</lastmod>
+    <xhtml:link rel="alternate" hreflang="es" href="https://yvanrai.github.io/Peruvian-Corner/eventos.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://yvanrai.github.io/Peruvian-Corner/eventos-en.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yvanrai.github.io/Peruvian-Corner/eventos.html"/>
+  </url>
+  <url>
+    <loc>https://yvanrai.github.io/Peruvian-Corner/eventos-en.html</loc>
+    <lastmod>2026-08-06</lastmod>
+    <xhtml:link rel="alternate" hreflang="es" href="https://yvanrai.github.io/Peruvian-Corner/eventos.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://yvanrai.github.io/Peruvian-Corner/eventos-en.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yvanrai.github.io/Peruvian-Corner/eventos.html"/>
+  </url>
+
+  <url>
+    <loc>https://yvanrai.github.io/Peruvian-Corner/privacidad.html</loc>
+    <lastmod>2026-08-25</lastmod>
+    <xhtml:link rel="alternate" hreflang="es" href="https://yvanrai.github.io/Peruvian-Corner/privacidad.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://yvanrai.github.io/Peruvian-Corner/privacidad-en.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yvanrai.github.io/Peruvian-Corner/privacidad.html"/>
+  </url>
+  <url>
+    <loc>https://yvanrai.github.io/Peruvian-Corner/privacidad-en.html</loc>
+    <lastmod>2026-08-25</lastmod>
+    <xhtml:link rel="alternate" hreflang="es" href="https://yvanrai.github.io/Peruvian-Corner/privacidad.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://yvanrai.github.io/Peruvian-Corner/privacidad-en.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yvanrai.github.io/Peruvian-Corner/privacidad.html"/>
+  </url>
+
+</urlset>
