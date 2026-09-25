@@ -15,11 +15,12 @@
   --ocean-pale: oklch(94% 0.022 210);
   --aji:        oklch(64% 0.185 52);
   --aji-pale:   oklch(95% 0.03 65);
+  --aji-text:   oklch(52% 0.185 52); /* darker aji for small text on sand/white — WCAG AA */
   --red:        oklch(40% 0.145 22);
   --red-dark:   oklch(30% 0.12 22);
   --ink:        oklch(16% 0.012 80);
   --ink-mid:    oklch(40% 0.015 80);
-  --ink-light:  oklch(60% 0.012 80);
+  --ink-light:  oklch(52% 0.012 80); /* darkened from 60% for WCAG AA on small text */
   --white:      oklch(99.5% 0.004 80);
 
   --font-display: 'Cormorant Garamond', Georgia, serif;

@@ -472,7 +472,7 @@
   padding: 1.75rem;
 }
 .testimonial-stars {
-  color: var(--aji);
+  color: var(--aji-text);
   font-size: 13px;
   letter-spacing: 2px;
   margin-bottom: 0.75rem;
