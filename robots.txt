@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://yvanrai.github.io/Peruvian-Corner/sitemap.xml
+Sitemap: https://peruviancorner808.com/sitemap.xml
